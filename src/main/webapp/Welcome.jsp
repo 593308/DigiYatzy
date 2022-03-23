@@ -8,11 +8,11 @@
 </head>
 <body>
 	
-	 <form action="Login.jsp">
+	 <form action="LoginServlet" method="get">
 	 	<input type="submit" value="Log In"/>
 	 </form>
 	 
-	 <form action="Register.jsp">
+	 <form action="RegisterServlet" method="get">
 	 	<input type="submit" value="Register">
 	 </form>
 	
