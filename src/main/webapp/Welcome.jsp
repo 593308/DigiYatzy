@@ -12,7 +12,7 @@
 	 	<input type="submit" value="Log In"/>
 	 </form>
 	 
-	 <form action="Registrer.jsp">
+	 <form action="Register.jsp">
 	 	<input type="submit" value="Register">
 	 </form>
 	
