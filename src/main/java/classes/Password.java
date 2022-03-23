@@ -1,7 +1,10 @@
 package classes;
 
+import javax.persistence.Embeddable;
+
 import utils.PasswordUtil;
 
+@Embeddable
 public class Password {
 
 	private String pwd_hash;
