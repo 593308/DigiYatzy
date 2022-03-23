@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	 <form action="LogIn.jsp">
+	 <form action="Login.jsp">
 	 	<input type="submit" value="Log In"/>
 	 </form>
 	 
