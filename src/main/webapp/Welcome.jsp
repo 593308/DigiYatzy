@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>DigiYatzy</title>
 </head>
 <body>
-
+	
+	 <form action="LogIn.jsp">
+	 	<input type="submit" value="Log In"/>
+	 </form>
+	 
+	 <form action="Register.jsp">
+	 	<input type="submit" value="Register">
+	 </form>
+	
 </body>
 </html>
