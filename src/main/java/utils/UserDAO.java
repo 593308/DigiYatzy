@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import classes.User;
 
 @Stateless
 public class UserDAO implements DAO{
 	
+	@PersistenceContext(name="userDB")
 	private EntityManager em; 
 	
 
