@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import classes.User;
 import utils.PasswordUtil;
 import utils.UserDAO;
+import classes.Password;
 
 /**
  * Servlet implementation class LoginServlet
@@ -35,6 +36,10 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Password testPasswordHash = Password.lagPassord("lol");
+		User testUser = new User("Matias", "doggy@dogmail.dog", testPasswordHash);
+		
+		userdao.addNewUser(testUser);
 		request.getRequestDispatcher("WEB-INF/Login.jsp").forward(request, response);
 	}
 
