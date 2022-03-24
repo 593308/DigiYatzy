@@ -14,6 +14,10 @@ public class UserDAO implements DAO{
 	@PersistenceContext(name="userDB")
 	private EntityManager em; 
 	
+	public UserDAO() {
+		
+	}
+	
 
 
 	@Override
