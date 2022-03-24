@@ -10,8 +10,8 @@
 		
 		<jta-data-source>DAT108DataSource</jta-data-source>
 		
-		<class>no.hvl.database.Deltager;</class>
-		<class>no.hvl.hjelpeklasser.Passord;</class> 	
+		<class>classes.Password</class>
+		<class>classes.User</class> 	
 		
 		
 		<properties>
