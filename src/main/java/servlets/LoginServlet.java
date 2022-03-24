@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println(userdao);
 		Password testPasswordHash = Password.lagPassord("lol");
 		User testUser = new User("Matias", "doggy@dogmail.dog", testPasswordHash);
 		
