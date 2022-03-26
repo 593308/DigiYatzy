@@ -2,16 +2,18 @@ package utils;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import classes.User;
+import classes.YatzyUser;
 
 @Stateless
+@LocalBean
 public class UserDAO implements DAO{
 	
-	@PersistenceContext(name="userDB")
+	@PersistenceContext(name = "userDB")
 	private EntityManager em; 
 	
 	public UserDAO() {
@@ -21,22 +23,22 @@ public class UserDAO implements DAO{
 
 
 	@Override
-	public List<User> getAllUsers() {
+	public List<YatzyUser> getAllUsers() {
 		// TODO Auto-generated method stub
-		return em.createQuery("SELECT s from users s ", User.class).getResultList();
+		return em.createQuery("SELECT s from users s ", YatzyUser.class).getResultList();
 	}
 
 	@Override
-	public void addNewUser(User user) {
+	public void addNewUser(YatzyUser user) {
 		// TODO Auto-generated method stub
 		em.persist(user);
 		
 	}
 
 	@Override
-	public User getUser(String username) {
+	public YatzyUser getUser(String username) {
 		// TODO Auto-generated method stub
-		return em.find(User.class, username); 
+		return em.find(YatzyUser.class, username); 
 	}
 
 }

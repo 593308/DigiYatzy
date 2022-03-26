@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema="yatzy")
-public class User {
+public class YatzyUser {
 	
 	@Id
 	private String username; 
@@ -15,11 +15,11 @@ public class User {
 	@Embedded
 	private Password password;
 	
-	public User() {
+	public YatzyUser() {
 		
 	}
 	
-	public User(String username, String email, Password password) {
+	public YatzyUser(String username, String email, Password password) {
 		super(); 
 		this.username = username; 
 		this.email = email; 

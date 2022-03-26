@@ -2,15 +2,15 @@ package utils;
 
 import java.util.List;
 
-import classes.User;
+import classes.YatzyUser;
 
 public interface DAO {
 	
-	public List<User> getAllUsers();
+	public List<YatzyUser> getAllUsers();
 	
-	public void addNewUser(User user);
+	public void addNewUser(YatzyUser user);
 	
-	public User getUser(String username);
+	public YatzyUser getUser(String username);
 	
 	
 

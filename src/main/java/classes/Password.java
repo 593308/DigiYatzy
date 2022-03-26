@@ -23,9 +23,9 @@ public class Password {
 		return "Password [pwd_hash=" + pwd_hash + ", pwd_salt=" + pwd_salt + "]";
 	}
 
-	public static Password lagPassord(String passordKlartekst) {
+	public static Password createPassword(String realPassword) {
 		String salt = PasswordUtil.generateRandomSalt();
-		String hash = PasswordUtil.hashWithSalt(passordKlartekst, salt);
+		String hash = PasswordUtil.hashWithSalt(realPassword, salt);
 		return new Password(hash, salt);
 	}
 	

@@ -2,7 +2,7 @@ DROP SCHEMA IF EXISTS yatzy CASCADE;
 CREATE SCHEMA yatzy;
 SET search_path = yatzy;
 
-CREATE TABLE users 
+CREATE TABLE 	 
 (
    username CHARACTER VARYING(15),
    email CHARACTER VARYING(30),

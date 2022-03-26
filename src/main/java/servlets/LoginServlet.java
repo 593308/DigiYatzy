@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import classes.User;
+import classes.YatzyUser;
 import utils.PasswordUtil;
 import utils.UserDAO;
 import classes.Password;
@@ -36,12 +36,10 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(userdao);
-		Password testPasswordHash = Password.lagPassord("lol");
-		User testUser = new User("Matias", "doggy@dogmail.dog", testPasswordHash);
 		
-		userdao.addNewUser(testUser);
 		request.getRequestDispatcher("WEB-INF/Login.jsp").forward(request, response);
+		
+		
 	}
 
 	/**
@@ -52,10 +50,13 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		User user = userdao.getUser(username);
+		YatzyUser user = userdao.getUser(username);
+		System.out.println(user.getUsername());
 		
 		if (PasswordUtil.validateWithSalt(password, user.getPassword().getSalt(), user.getPassword().getHash())) {
 			response.sendRedirect("LoginServlet");
+		} else {
+			response.sendRedirect("test");
 		}
 	}
 

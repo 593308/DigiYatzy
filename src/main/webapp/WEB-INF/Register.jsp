@@ -20,6 +20,9 @@
 				<label for="username">Username:</label> <input type="text" name="username" />
 			</div>
 			<div class="pure-control-group">
+				<label for="username">Email:</label> <input type="text" name="email" />
+			</div>
+			<div class="pure-control-group">
 				<label for="password">Password:</label> <input type="password"
 					name="password" />
 			</div>

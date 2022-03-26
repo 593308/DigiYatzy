@@ -1,11 +1,17 @@
 package servlets;
 
 import java.io.IOException;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import classes.Password;
+import classes.YatzyUser;
+import utils.UserDAO;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -13,6 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@EJB
+	UserDAO userdao;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,8 +43,17 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		Password pwd_hash = Password.createPassword(password);
+		
+		YatzyUser registering_user = new YatzyUser(username, email, pwd_hash);
+		
+		userdao.addNewUser(registering_user);
+		
+		
 	}
 
 }
