@@ -24,7 +24,7 @@ public class YatzyGameDAO {
 		return em.createQuery("SELECT g from yatzyGame g ", YatzyGame.class).getResultList();
 	}
 	
-	public void newGame(YatzyGame game) {
+	public void createGame(YatzyGame game) {
 		em.persist(game);
 	}
 	
