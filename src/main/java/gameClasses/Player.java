@@ -53,6 +53,9 @@ public class Player {
 		this.yatzyUser = yatzyUser;
 		this.yatzyGame = yatzyGame;
 		
+		yatzyGame.addPlayer(this);
+		yatzyUser.makePlayer(this);
+		
 		playerstate = playerstate.ACTIVE;
 
 		onesScore = 0;

@@ -11,7 +11,9 @@
 		<jta-data-source>DAT108DataSource</jta-data-source>
 		
 		<class>classes.Password</class>
-		<class>classes.YatzyUser</class> 	
+		<class>classes.YatzyUser</class>
+		<class>gameClasses.Player</class> 	
+		<class>gameClasses.YatzyGame</class> 	
 		
 		
 		<properties>
