@@ -53,6 +53,8 @@ public class RegisterServlet extends HttpServlet {
 		
 		userdao.addNewUser(registering_user);
 		
+		request.getRequestDispatcher("WEB-INF/Menu.jsp").forward(request, response);
+		
 		
 	}
 

@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 		if (PasswordUtil.validateWithSalt(password, user.getPassword().getSalt(), user.getPassword().getHash())) {
 			response.sendRedirect("LoginServlet");
 		} else {
-			response.sendRedirect("test");
+			request.getRequestDispatcher("WEB-INF/Menu.jsp").forward(request, response);
 		}
 	}
 
