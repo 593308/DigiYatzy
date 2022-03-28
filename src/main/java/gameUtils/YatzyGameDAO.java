@@ -28,7 +28,7 @@ public class YatzyGameDAO {
 		em.persist(game);
 	}
 	
-	public YatzyGame getGame(int gameId) {
+	public YatzyGame getGameById(int gameId) {
 		return em.find(YatzyGame.class, gameId);
 	}
 

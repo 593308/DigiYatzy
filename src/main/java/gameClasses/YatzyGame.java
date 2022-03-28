@@ -19,8 +19,7 @@ public class YatzyGame {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int gameId;
 	
-	@OneToOne
-	private Player hostPlayer;
+	private String hostplayer;
 	
 	@OneToMany(mappedBy="yatzyGame")
 	private List<Player> players;
@@ -47,8 +46,8 @@ public class YatzyGame {
 	
 	
 	
-	public YatzyGame() {
-		
+	public YatzyGame(String hostplayer) {
+		this.hostplayer = hostplayer;
 	}
 	
 	public void addPlayer(Player player) {
