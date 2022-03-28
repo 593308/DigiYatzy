@@ -25,7 +25,7 @@ public class UserDAO implements DAO{
 	@Override
 	public List<YatzyUser> getAllUsers() {
 		// TODO Auto-generated method stub
-		return em.createQuery("SELECT s from users s ", YatzyUser.class).getResultList();
+		return em.createQuery("SELECT s from yatzyUser s ", YatzyUser.class).getResultList();
 	}
 
 	@Override
