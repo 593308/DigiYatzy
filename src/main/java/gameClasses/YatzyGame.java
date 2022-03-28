@@ -26,6 +26,26 @@ public class YatzyGame {
 	private List<Player> players;
 	
 	
+	private int eventCounter;
+	private String gameSate;
+	private int roundCount;
+	private String currentPlayer;
+	private int diceRollCount;
+	private int strikCount;
+	private int die0Value;
+	private int die1Value;
+	private int die2Value;
+	private int die3Value;
+	private int die4Value;
+	
+	
+	
+	
+	
+	
+	public YatzyGame() {
+		
+	}
 	
 	public void addPlayer(Player player) {
 		players.add(player);
