@@ -13,7 +13,7 @@ CREATE TABLE yatzyUser
 
 CREATE TABLE yatzyGame 
 (
-	gameid SERIAL,
+	gameId SERIAL,
 	hostplayer VARCHAR(20),
 	eventCounter INTEGER,
 	gameState CHAR(20),
@@ -32,7 +32,7 @@ CREATE TABLE yatzyGame
 CREATE TABLE player
 (
 	username VARCHAR(20),
-	gameid INTEGER,
+	gameId INTEGER,
 	playerState CHAR(20),
 	onesScore INTEGER,
 	twosScore INTEGER,

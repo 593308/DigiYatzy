@@ -26,5 +26,17 @@ public class YatzyGame {
 	private List<Player> players;
 	
 	
+	
+	public void addPlayer(Player player) {
+		players.add(player);
+	}
+	
+	public void removePlayer(Player player) {
+		players.remove(player);
+	}
+	
+	
+	
+	
 
 }

@@ -17,10 +17,17 @@ import gameUtils.PlayerState;
 @IdClass(PlayerId.class)
 public class Player {
 
-	@EmbeddedId
+	@Id
 	@ManyToOne
-	@JoinColumn(name="gameID")
-	private PlayerId playerId;
+	@JoinColumn(name="username")
+	private YatzyUser yatzyUser;
+	
+	@Id
+	@ManyToOne
+	@JoinColumn(name="gameId")
+	private YatzyGame yatzyGame;
+	
+	
 
 	private PlayerState playerstate;
 	private int onesScore;
@@ -41,10 +48,10 @@ public class Player {
 	private int yatzyScore;
 	private int totalScore;
 
-	public Player(YatzyUser yatzyUser, YatzyGame gameId) {
+	public Player(YatzyUser yatzyUser, YatzyGame yatzyGame) {
 		
-		playerId = new PlayerId(yatzyUser, gameId);
-		
+		this.yatzyUser = yatzyUser;
+		this.yatzyGame = yatzyGame;
 		
 		playerstate = playerstate.ACTIVE;
 
