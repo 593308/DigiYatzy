@@ -38,6 +38,10 @@ public class YatzyGame {
 	private int die3Value;
 	private int die4Value;
 	
+	private Die[] dice;
+	
+	
+	
 	
 	
 	
