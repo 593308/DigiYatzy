@@ -13,13 +13,20 @@
 
 
 
-	 <form action="CreateGameServlet" method="get">
+	 <form action="MenuServlet" method="get">
 	 	<input type="submit" class="pure-button pure-button-primary" value="Create Game "/>
 	 </form>
 	 <br>
-	 <form action="JoinGameServlet" method="get">
+	 <form action="MenuServlet" method="get">
+	 	<input type ="number" name="gameId" value="GameId">
+	 	<br> 
 	 	<input type="submit" class="pure-button pure-button-primary" value="Join Game">
+	 	
+	 	
 	 </form>
+
+	
+	 
 
 </body>
 </html>
