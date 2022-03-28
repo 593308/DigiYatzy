@@ -1,5 +1,6 @@
 package gameUtils;
 
-public enum PLayerState {
-
+public enum PlayerState {
+	
+	INACTIVE, ACTIVE;
 }
