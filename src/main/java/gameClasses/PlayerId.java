@@ -7,12 +7,12 @@ import classes.YatzyUser;
 @Embeddable
 public class PlayerId {
 	
-	private String username;
-	private int gameId;
+	private String yatzyUser;
+	private int yatzyGame;
 	
-	public PlayerId(String username, int gameId) {
-		this.username = username;
-		this.gameId = gameId;
+	public PlayerId(String yatzyUser, int yatzyGame) {
+		this.yatzyUser = yatzyUser;
+		this.yatzyGame = yatzyGame;
 	}
 
 }

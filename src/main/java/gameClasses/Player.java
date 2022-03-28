@@ -77,6 +77,10 @@ public class Player {
 		totalScore = 0;
 
 	}
+	
+	public Player() {
+		
+	}
 
 	public PlayerState getPlayerstate() {
 		return playerstate;

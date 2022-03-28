@@ -36,7 +36,7 @@ public class YatzyGame {
 	private int die3Value;
 	private int die4Value;
 
-	private Die[] dice;
+//	private Die[] dice;
 
 	public YatzyGame(String hostPlayer) {
 		this.hostPlayer = hostPlayer;
@@ -52,9 +52,15 @@ public class YatzyGame {
 		die3Value = 0;
 		die4Value = 0;
 
-		for (int i = 0; i < 5; i++)
-			dice[i] = new Die();
+//		for (int i = 0; i < 5; i++)
+//			dice[i] = new Die(i);
+		
+//		dice = null;
 
+	}
+	
+	public YatzyGame() {
+		
 	}
 
 	public void addPlayer(Player player) {
