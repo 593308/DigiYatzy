@@ -1,14 +1,12 @@
 package gameClasses;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import gameUtils.GameState;
@@ -16,17 +14,16 @@ import gameUtils.GameState;
 @Entity
 @Table(schema = "yatzy")
 public class YatzyGame {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int gameId;
-	
+
 	private String hostPlayer;
-	
-	@OneToMany(mappedBy="yatzyGame")
+
+	@OneToMany(mappedBy = "yatzyGame")
 	private List<Player> players;
-	
-	
+
 	private int eventCounter;
 	private GameState gameState;
 	private int roundCount;
@@ -38,16 +35,9 @@ public class YatzyGame {
 	private int die2Value;
 	private int die3Value;
 	private int die4Value;
-	
+
 	private Die[] dice;
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public YatzyGame(String hostPlayer) {
 		this.hostPlayer = hostPlayer;
 		eventCounter = 0;
@@ -61,22 +51,18 @@ public class YatzyGame {
 		die2Value = 0;
 		die3Value = 0;
 		die4Value = 0;
-		
+
 		for (int i = 0; i < 5; i++)
 			dice[i] = new Die();
-		
+
 	}
-	
+
 	public void addPlayer(Player player) {
 		players.add(player);
 	}
-	
+
 	public void removePlayer(Player player) {
 		players.remove(player);
 	}
-	
-	
-	
-	
 
 }

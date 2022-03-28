@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import classes.Password;
 import classes.YatzyUser;
+import gameUtils.YatzyGameDAO;
 import utils.UserDAO;
 
 /**
@@ -22,6 +23,9 @@ public class RegisterServlet extends HttpServlet {
 	
 	@EJB
 	UserDAO userdao;
+	
+	@EJB
+	YatzyGameDAO yatzygamedao;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -50,6 +54,11 @@ public class RegisterServlet extends HttpServlet {
 		Password pwd_hash = Password.createPassword(password);
 		
 		YatzyUser registering_user = new YatzyUser(username, email, pwd_hash);
+		
+		//Tester databasen for yatzy game, DELETE LATER
+		String hosttest = "matias";
+		
+		YatzyGameServlet testgame = new YatzyGameServlet(hosttest);
 		
 		userdao.addNewUser(registering_user);
 		

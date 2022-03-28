@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class YatzyGame
  */
 @WebServlet("/YatzyGame")
-public class YatzyGame extends HttpServlet {
+public class YatzyGameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public YatzyGame() {
+    public YatzyGameServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
