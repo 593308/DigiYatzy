@@ -4,9 +4,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<link rel="stylesheet"
+	href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<title>Games</title>
 </head>
 <body>
+
+
+
+	 <form action="CreateGameServlet" method="get">
+	 	<input type="submit" class="pure-button pure-button-primary" value="Create Game "/>
+	 </form>
+	 <br>
+	 <form action="JoinGameServlet" method="get">
+	 	<input type="submit" class="pure-button pure-button-primary" value="Join Game">
+	 </form>
 
 </body>
 </html>

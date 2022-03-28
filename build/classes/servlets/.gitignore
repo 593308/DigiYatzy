@@ -1,2 +1,4 @@
 /LoginServlet.class
 /RegisterServlet.class
+/CreateGameServlet.class
+/JoinGameServlet.class
