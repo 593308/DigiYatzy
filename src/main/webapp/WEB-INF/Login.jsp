@@ -25,6 +25,10 @@
 					name="password" />
 			</div>
 			<div class="pure-controls">
+				<button type="submit" class="pure-button pure-button-primary">Login
+				</button>
+			</div>
+			<div class="pure-controls">
 				<button type="submit" class="pure-button pure-button-primary">Register
 				</button>
 			</div>
