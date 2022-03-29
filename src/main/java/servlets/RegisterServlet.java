@@ -56,12 +56,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		YatzyUser registering_user = new YatzyUser(username, email, pwd_hash);
 		
-		//Tester databasen for yatzy game, DELETE LATER
-		String hosttest = "matias";
 		
-		YatzyGame testgame = new YatzyGame(hosttest);
-		
-		yatzygamedao.createGame(testgame);
 		
 		userdao.addNewUser(registering_user);
 		
