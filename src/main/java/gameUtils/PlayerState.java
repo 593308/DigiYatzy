@@ -2,5 +2,5 @@ package gameUtils;
 
 public enum PlayerState {
 	
-	INACTIVE, ACTIVE;
+	INACTIVE, ACTIVE
 }
