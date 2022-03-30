@@ -17,7 +17,6 @@ public class YatzyGameDAO {
 	private EntityManager em;
 	
 	public YatzyGameDAO() {
-		
 	}
 	
 	public List<YatzyGame> getAllGames() {

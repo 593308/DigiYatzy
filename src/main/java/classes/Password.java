@@ -10,6 +10,14 @@ public class Password {
 	private String pwd_hash;
     private String pwd_salt;
     
+    /**
+     * 
+     * @param hash
+     * @param salt
+     * 
+     * Creates a Password containing a hash and a salt
+     */
+    
     
 	private Password(String hash, String salt) {
 		pwd_hash = hash;
@@ -23,6 +31,13 @@ public class Password {
 		return "Password [pwd_hash=" + pwd_hash + ", pwd_salt=" + pwd_salt + "]";
 	}
 
+	/**
+	 * 
+	 * @param realPassword
+	 * @return an object of the type Password
+	 * 
+	 * Makes a password from a random generated salt and a generated hash
+	 */
 	public static Password createPassword(String realPassword) {
 		String salt = PasswordUtil.generateRandomSalt();
 		String hash = PasswordUtil.hashWithSalt(realPassword, salt);
