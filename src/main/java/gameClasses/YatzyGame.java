@@ -318,5 +318,19 @@ public class YatzyGame {
 		
 	}
 	
+	public List<Integer> getDiceValues() {
+		List<Integer> dice = new ArrayList<Integer>();
+		
+		dice.add(die0Value);
+		dice.add(die1Value);
+		dice.add(die2Value);
+		dice.add(die3Value);
+		dice.add(die4Value);
+		
+		
+		
+		return dice;
+	}
+	
 
 }
