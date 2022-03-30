@@ -15,6 +15,7 @@ import javax.persistence.Table;
 
 import gameUtils.GameState;
 import gameUtils.PlayerState;
+import gameUtils.ScoreCalculator;
 
 @Entity
 @Table(schema = "yatzy")
@@ -42,7 +43,7 @@ public class YatzyGame {
 	private int die4Value;
 
 //	private Die[] dice;
-	
+
 	public YatzyGame(String hostPlayer) {
 		this.hostPlayer = hostPlayer;
 		eventCounter = 0;
@@ -56,8 +57,6 @@ public class YatzyGame {
 		die2Value = 0;
 		die3Value = 0;
 		die4Value = 0;
-		
-		
 
 //		for (int i = 0; i < 5; i++)
 //			dice[i] = new Die(i);
@@ -69,8 +68,6 @@ public class YatzyGame {
 	public YatzyGame() {
 
 	}
-
-	
 
 	public void addPlayer(Player player) {
 		players.add(player);
@@ -99,7 +96,7 @@ public class YatzyGame {
 //		dice.add(die4Value);
 //		
 //		dice.stream().forEach(x -> x = (int) ((Math.random() *5) + 1));
-		
+
 		currentPlayer = username;
 
 		if (!diceselection[0]) {
@@ -118,59 +115,107 @@ public class YatzyGame {
 		if (!diceselection[4]) {
 			die4Value = (int) ((Math.random() * 5) + 1);
 		}
-		
+
 		advanceTurn();
 
 	}
-	
+
 	public void advanceTurn() {
-		
+
 		diceRollCount++;
-		
+
 		if (diceRollCount >= 3) {
 			endTurn(currentPlayer);
-			
+
 		}
-		
+
 	}
-	
+
 	public void endTurn(String username) {
 		if (diceRollCount == 0 || !username.equals(currentPlayer))
 			return;
-		
+
 		diceRollCount = 0;
 		strikeCount = 0;
-		
+		ScoreCalculator sc = new ScoreCalculator();
+		int score = sc.calculateScore(getDiceValues(), roundCount);
+
 		int index = findIndexOfPlayer(username);
-		
-		do {
-			
-		if (players.size() == index + 1)
-			endRound();
-		else if (index == -1 || 100 == 2) {
-			System.out.println("failure. Player not found in game");
-			return;
-		} else {
-			index += 1;
-			currentPlayer = players.get(index).getYatzyUser().getUsername();
+		switch (roundCount) {
+		case 1:
+			players.get(index).setOnesScore(score);
+			break;
+		case 2:
+			players.get(index).setTwosScore(score);
+			break;
+		case 3:
+			players.get(index).setThreesScore(score);
+			break;
+		case 4:
+			players.get(index).setFoursScore(score);
+			break;
+		case 5:
+			players.get(index).setFivesScore(score);
+			break;
+		case 6:
+			players.get(index).setSixesScore(score);
+			break;
+		case 7:
+			players.get(index).setOnePairScore(score);
+			break;
+		case 8:
+			players.get(index).setTwoPairsScore(score);
+			break;
+		case 9:
+			players.get(index).setThreeOfAKindScore(score);
+			break;
+		case 10:
+			players.get(index).setFourOfAKindScore(score);
+			break;
+		case 11:
+			players.get(index).setSmallStraightScore(score);
+			break;
+		case 12:
+			players.get(index).setLargeStraightScore(score);
+			break;
+		case 13:
+			players.get(index).setFullHouseScore(score);
+			break;
+		case 14:
+			players.get(index).setChanceScore(score);
+			break;
+		case 15:
+			players.get(index).setYatzyScore(score);
+			break;
 		}
-		} while(players.get(index).getPlayerstate().equals(PlayerState.INACTIVE));
-		
-		
+
+		do {
+
+			if (players.size() == index + 1)
+				endRound();
+			else if (index == -1 || 100 == 2) {
+				System.out.println("failure. Player not found in game");
+				return;
+			} else {
+				index += 1;
+				currentPlayer = players.get(index).getYatzyUser().getUsername();
+			}
+		} while (players.get(index).getPlayerstate().equals(PlayerState.INACTIVE));
+
 	}
-	
+
 	private void endRound() {
 		if (roundCount < 15) {
 			roundCount++;
 			currentPlayer = players.get(0).getYatzyUser().getUsername();
 		}
-		
+
 		else {
 			gameState = GameState.FINISHED;
 			currentPlayer = null;
-			
+
 		}
-		
+
 	}
 
 	private int findIndexOfPlayer(String username) {
@@ -178,10 +223,9 @@ public class YatzyGame {
 			if (players.get(i).getYatzyUser().getUsername().equals(username))
 				return i;
 		}
-		
+
 		return -1;
 	}
-	
 
 //	public byte[] marshall() {
 //		ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -198,7 +242,7 @@ public class YatzyGame {
 //		players.stream().forEach(p -> playersAsBytes.add(p.marshall()));
 //		
 //	}
-	
+
 	public String getHostPlayer() {
 		return hostPlayer;
 	}
@@ -307,30 +351,25 @@ public class YatzyGame {
 		this.gameId = gameId;
 	}
 
-	
-
 	public int getGameId() {
 		return gameId;
 	}
 
 	public void poke(String username) {
-		//TODO
-		
+		// TODO
+
 	}
-	
+
 	public List<Integer> getDiceValues() {
 		List<Integer> dice = new ArrayList<Integer>();
-		
+
 		dice.add(die0Value);
 		dice.add(die1Value);
 		dice.add(die2Value);
 		dice.add(die3Value);
 		dice.add(die4Value);
-		
-		
-		
+
 		return dice;
 	}
-	
 
 }
