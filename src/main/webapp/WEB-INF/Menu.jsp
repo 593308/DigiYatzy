@@ -12,8 +12,7 @@
 <body>
 
 
-
-	 <form action="MenuServlet" method="get">
+	 <form action="MenuServlet" method="post">
 	 	<input type="submit" class="pure-button pure-button-primary" value="Create Game "/>
 	 </form>
 	 <br>
