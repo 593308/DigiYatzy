@@ -53,7 +53,6 @@ public class CreateGameServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Hei");
 		
 		String username = "hei4";
 		
@@ -64,7 +63,7 @@ public class CreateGameServlet extends HttpServlet {
 		Integer id = service.createGame(username);
 		HttpSession session= request.getSession(true);
 		session.setAttribute("GameId", id);
-		System.out.println("Hei2");
+		
 		
 		response.sendRedirect("YatzyGameServlet");
 		
