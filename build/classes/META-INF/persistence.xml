@@ -14,7 +14,6 @@
 		<class>classes.YatzyUser</class>
 		<class>gameClasses.Player</class> 	
 		<class>gameClasses.YatzyGame</class> 	
-		<class>gameClasses.YatzyService</class> 	
 		
 		
 		<properties>
