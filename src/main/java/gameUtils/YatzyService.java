@@ -12,14 +12,26 @@ public class YatzyService {
 	private HashMap<Integer, YatzyGame> activeGames;
 	UserDAO userdao;
 	YatzyGameDAO gamedao;
-	PlayerDAO playerdao; 
+	PlayerDAO playerdao;
+	
+//	public byte[] poll(int gameId, int eventCounter) {
+//		YatzyGame game = gamedao.getGameById(gameId);
+//		
+//		if (eventCounter == game.getEventCounter()) 
+//			return null;
+//		
+//		return game.marshall();
+//		
+//	}
 	
 	
 	public int createGame(String username) {
 		YatzyGame game = new YatzyGame(username);
 		
 		
+		
 		gamedao.createGame(game);
+		
 		
 		joinGame(game.getGameId(), username);
 		
@@ -29,6 +41,7 @@ public class YatzyService {
 	public void joinGame(int gameId, String username) {
 		YatzyGame game = gamedao.getGameById(gameId);
 		YatzyUser user = userdao.getUser(username);
+		
 		
 		Player player = new Player(user, game);
 		

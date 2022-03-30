@@ -1,5 +1,9 @@
 package gameClasses;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -242,6 +246,21 @@ public class Player {
 	public void setTotalScore(int totalScore) {
 		this.totalScore = totalScore;
 	}
+
+//	public byte[] marshall() {
+//		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//		try {
+//			ObjectOutputStream oos = new ObjectOutputStream(bos);
+//			oos.writeObject(this);
+//			oos.flush();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return bos.toByteArray();
+//		
+//		
+//	}
 	
 	
 
