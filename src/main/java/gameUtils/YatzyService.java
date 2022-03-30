@@ -13,6 +13,7 @@ public class YatzyService {
 	UserDAO userdao;
 	YatzyGameDAO gamedao;
 	
+	
 	public int createGame(String username) {
 		YatzyGame game = new YatzyGame(username);
 		return game.getGameId();
@@ -24,7 +25,7 @@ public class YatzyService {
 		
 		Player player = new Player(user, game);
 		
-		game.addPlayer(player);
+		
 		
 		
 		
