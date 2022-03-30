@@ -8,11 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import classes.YatzyUser;
 import utils.PasswordUtil;
 import utils.UserDAO;
-import classes.Password;
 
 /**
  * Servlet implementation class LoginServlet
@@ -50,10 +50,14 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		HttpSession session = request.getSession(true);
+
+		
 		YatzyUser user = userdao.getUser(username);
 		System.out.println(user.getUsername());
 		
 		if (PasswordUtil.validateWithSalt(password, user.getPassword().getSalt(), user.getPassword().getHash())) {
+			session.setAttribute("username", username);
 			response.sendRedirect("MenuServlet");
 		} else {
 			response.sendRedirect("LoginServlet");

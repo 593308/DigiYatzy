@@ -16,7 +16,7 @@
 	 	<input type="submit" class="pure-button pure-button-primary" value="Create Game "/>
 	 </form>
 	 <br>
-	 <form action="MenuServlet" method="post">
+	 <form action="JoinGameServlet" method="post">
 	 	<input type ="number" name="gameId" value="GameId">
 	 	<br> 
 	 	<input type="submit" class="pure-button pure-button-primary" value="Join Game">

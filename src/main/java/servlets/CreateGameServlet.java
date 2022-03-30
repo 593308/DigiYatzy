@@ -39,12 +39,7 @@ public class CreateGameServlet extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/Game.jsp").forward(request, response);
-		System.out.println("Hei453234");
-	}
-		
-
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
