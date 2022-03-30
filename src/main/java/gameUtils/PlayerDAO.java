@@ -58,13 +58,15 @@ public class PlayerDAO  {
         String userName = x.getYatzyUser().getUsername();
         int gameId = x.getYatzyGame().getGameId(); 
 
-        TypedQuery<Player> q = em.createQuery("SELECT :whatToUpdate from Player :whatToUpdate where username = :userName AND gameid = :gameId ", Player.class);
+        TypedQuery<Player> q = em.createQuery("SELECT p from Player p where username = :userName AND gameid = :gameId ", Player.class);
 
         q.setParameter("whatToUpdate", whatToUpdate); 
         q.setParameter("userName", userName); 
         q.setParameter("gameId", gameId); 
 
-        q.getSingleResult(); 
+        q.getSingleResult();
+        
+   
 
 
 
