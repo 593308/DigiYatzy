@@ -21,7 +21,12 @@ table, th, td {
 	<h1>DigiYatzy</h1>
 	<table>
 
-		<tr id="playas"><td>Players -></td></tr>
+		<tr id="playas">
+			<td>Players -></td>
+			<c:forEach items="${players}" var="p">
+				<td>${p.username}</td>
+			</c:forEach>
+		</tr>
 		<tr id="ones">
 			<td>Ones</td>
 		</tr>
