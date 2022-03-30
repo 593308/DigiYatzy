@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import gameUtils.GameState;
+import gameUtils.PlayerState;
 
 @Entity
 @Table(schema = "yatzy")
@@ -142,6 +143,8 @@ public class YatzyGame {
 		
 		int index = findIndexOfPlayer(username);
 		
+		do {
+			
 		if (players.size() == index + 1)
 			endRound();
 		else if (index == -1 || 100 == 2) {
@@ -151,12 +154,22 @@ public class YatzyGame {
 			index += 1;
 			currentPlayer = players.get(index).getYatzyUser().getUsername();
 		}
+		} while(players.get(index).getPlayerstate().equals(PlayerState.INACTIVE));
 		
 		
 	}
 	
 	private void endRound() {
-		// TODO Auto-generated method stub
+		if (roundCount < 15) {
+			roundCount++;
+			
+		}
+		
+		else {
+			gameState = GameState.FINISHED;
+			currentPlayer = null;
+			
+		}
 		
 	}
 
@@ -298,6 +311,11 @@ public class YatzyGame {
 
 	public int getGameId() {
 		return gameId;
+	}
+
+	public void poke(String username) {
+		//TODO
+		
 	}
 	
 

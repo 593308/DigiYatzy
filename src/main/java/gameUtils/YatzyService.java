@@ -72,4 +72,9 @@ public class YatzyService {
 		game.endTurn(username);
 	}
 	
+	public void poke(int gameId, String username) {
+		YatzyGame game = gamedao.getGameById(gameId);
+		game.poke(username);
+	}
+	
 }
