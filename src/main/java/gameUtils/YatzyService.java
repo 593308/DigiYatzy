@@ -43,7 +43,14 @@ public class YatzyService {
 	
 	public void rollDice(int gameId, String username, boolean[] diceSelection) {
 		YatzyGame game = gamedao.getGameById(gameId);
-		rollDice(username, diceSelection);
+		game.rollDice(username, diceSelection);
+		
+		gamedao.updateGame(game);
+	}
+	
+	public void endTurn(int gameId, String username) {
+		YatzyGame game = gamedao.getGameById(gameId);
+		game.endTurn(username);
 	}
 	
 }

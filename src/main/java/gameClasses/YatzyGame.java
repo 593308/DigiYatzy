@@ -55,15 +55,15 @@ public class YatzyGame {
 
 //		for (int i = 0; i < 5; i++)
 //			dice[i] = new Die(i);
-		
+
 //		dice = null;
 
 	}
-	
+
 	public YatzyGame() {
-		
+
 	}
-	
+
 	public int getGameId() {
 		return gameId;
 	}
@@ -75,32 +75,53 @@ public class YatzyGame {
 	public void removePlayer(Player player) {
 		players.remove(player);
 	}
-	
+
 	public void startGame() {
-		
-		currentPlayer = hostPlayer; 
-		roundCount = 1; 
+
+		currentPlayer = hostPlayer;
+		roundCount = 1;
 		gameState = GameState.PLAYER_TURN;
+
+	}
+
+	public void rollDice(String username, boolean[] diceselection) {
+
+//		List<Integer> dice = new ArrayList<Integer>();
+//		
+//		dice.add(die0Value);
+//		dice.add(die1Value);
+//		dice.add(die2Value);
+//		dice.add(die3Value);
+//		dice.add(die4Value);
+//		
+//		dice.stream().forEach(x -> x = (int) ((Math.random() *5) + 1));
 		
+		currentPlayer = username;
+
+		if (!diceselection[0]) {
+			die0Value = (int) ((Math.random() * 5) + 1);
+		}
+
+		if (!diceselection[1]) {
+			die1Value = (int) ((Math.random() * 5) + 1);
+		}
+		if (!diceselection[2]) {
+			die2Value = (int) ((Math.random() * 5) + 1);
+		}
+		if (!diceselection[3]) {
+			die3Value = (int) ((Math.random() * 5) + 1);
+		}
+		if (!diceselection[4]) {
+			die4Value = (int) ((Math.random() * 5) + 1);
+		}
+
 	}
 	
-	public void rollDice(String username, boolean[] diceselection) {
-		
-		List<Integer> dice = new ArrayList<Integer>();
-		
-		dice.add(die0Value);
-		dice.add(die1Value);
-		dice.add(die2Value);
-		dice.add(die3Value);
-		dice.add(die4Value);
-		
-		dice.stream().forEach(x -> x = (int) ((Math.random() *5) + 1));
-		
-		for (int i = 0; i < diceselection.length; i++) {
-			if (diceselection[i]) {
-				
-			}
-		}
+	public void advanceTurn() {
+		roundCount++;
+	}
+	
+	public void endTurn(String username) {
 		
 	}
 
