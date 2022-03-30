@@ -41,4 +41,9 @@ public class YatzyService {
 		
 	}
 	
+	public void rollDice(int gameId, String username, boolean[] diceSelection) {
+		YatzyGame game = gamedao.getGameById(gameId);
+		rollDice(username, diceSelection);
+	}
+	
 }
