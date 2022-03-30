@@ -17,6 +17,12 @@ public class YatzyService {
 	
 	public int createGame(String username) {
 		YatzyGame game = new YatzyGame(username);
+		
+		
+		gamedao.createGame(game);
+		
+		joinGame(game.getGameId(), username);
+		
 		return game.getGameId();
 	}
 	

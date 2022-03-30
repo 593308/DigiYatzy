@@ -52,6 +52,8 @@ public class YatzyGame {
 		die2Value = 0;
 		die3Value = 0;
 		die4Value = 0;
+		
+		
 
 //		for (int i = 0; i < 5; i++)
 //			dice[i] = new Die(i);
@@ -78,7 +80,7 @@ public class YatzyGame {
 
 	public void startGame() {
 
-		currentPlayer = hostPlayer;
+		currentPlayer = players.get(0).getYatzyUser().getUsername();
 		roundCount = 1;
 		gameState = GameState.PLAYER_TURN;
 
