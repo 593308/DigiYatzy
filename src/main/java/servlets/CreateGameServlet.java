@@ -1,11 +1,17 @@
 package servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import gameClasses.Player;
+import gameClasses.YatzyGame;
+import gameUtils.YatzyService;
 
 /**
  * Servlet implementation class CreateGameServlet
@@ -37,6 +43,20 @@ public class CreateGameServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
+		String username = request.getParameter("username");
+		
+		
+		Player player = new Player();
+		
+		YatzyGame game = new YatzyGame();
+		
+		YatzyService service = new YatzyService();
+		
+		Integer id = service.createGame(username);
+		HttpSession session= request.getSession(true);
+		session.setAttribute("GameId", id);
+		
+		response.sendRedirect("YatzyGameServlet");
 		
 	
 	
