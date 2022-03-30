@@ -30,5 +30,9 @@ public class YatzyGameDAO {
 	public YatzyGame getGameById(int gameId) {
 		return em.find(YatzyGame.class, gameId);
 	}
+	
+	public void addPlayer(YatzyGame game, User user) {
+		
+	}
 
 }
