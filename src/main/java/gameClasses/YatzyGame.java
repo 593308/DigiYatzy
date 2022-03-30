@@ -162,7 +162,7 @@ public class YatzyGame {
 	private void endRound() {
 		if (roundCount < 15) {
 			roundCount++;
-			
+			currentPlayer = players.get(0).getYatzyUser().getUsername();
 		}
 		
 		else {

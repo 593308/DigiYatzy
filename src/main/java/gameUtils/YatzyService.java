@@ -2,6 +2,8 @@ package gameUtils;
 
 import java.util.HashMap;
 
+import javax.ejb.EJB;
+
 import classes.YatzyUser;
 import gameClasses.Player;
 import gameClasses.YatzyGame;
@@ -10,8 +12,13 @@ import utils.UserDAO;
 public class YatzyService {
 
 	private HashMap<Integer, YatzyGame> activeGames;
+	@EJB
 	UserDAO userdao;
+	
+	@EJB
 	YatzyGameDAO gamedao;
+	
+	@EJB
 	PlayerDAO playerdao;
 	
 //	public byte[] poll(int gameId, int eventCounter) {
