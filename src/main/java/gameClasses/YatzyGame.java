@@ -62,6 +62,10 @@ public class YatzyGame {
 	public YatzyGame() {
 		
 	}
+	
+	public int getGameId() {
+		return gameId;
+	}
 
 	public void addPlayer(Player player) {
 		players.add(player);
