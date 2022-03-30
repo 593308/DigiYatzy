@@ -33,7 +33,7 @@ public class PlayerDAO  {
         return em.createQuery("SELECT s from Player s", Player.class).getResultList();
     }
     
-    public List<Player> getPlayerByGameId(int gameId){
+    public List<Player> getPlayersByGameId(int gameId){
     	
     	TypedQuery<Player> q = em.createQuery("SELECT s from Player s where gameId = :gameId", Player.class); 
     	q.setParameter("gameId", gameId); 

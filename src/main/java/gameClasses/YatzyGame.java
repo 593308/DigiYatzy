@@ -74,5 +74,13 @@ public class YatzyGame {
 	public void removePlayer(Player player) {
 		players.remove(player);
 	}
+	
+	public void startGame() {
+		
+		currentPlayer = hostPlayer; 
+		roundCount = 1; 
+		gameState = GameState.PLAYER_TURN;
+		
+	}
 
 }
