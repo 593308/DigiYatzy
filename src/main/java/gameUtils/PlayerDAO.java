@@ -28,9 +28,18 @@ public class PlayerDAO  {
 
 
 
-    public List<Player> getAllUsers() {
+    public List<Player> getAllPlayer() {
 
         return em.createQuery("SELECT s from Player s", Player.class).getResultList();
+    }
+    
+    public List<Player> getPlayerByGameId(int gameId){
+    	
+    	TypedQuery<Player> q = em.createQuery("SELECT s from Player s where gameId = :gameId", Player.class); 
+    	q.setParameter("gameId", gameId); 
+    	
+    	return q.getResultList(); 
+    	
     }
 
 

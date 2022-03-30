@@ -34,5 +34,11 @@ public class YatzyGameDAO {
 	public void addPlayer(YatzyGame game, User user) {
 		
 	}
+	
+	public void updateGame(YatzyGame game) {
+		
+		
+		em.merge(game); 
+	}
 
 }

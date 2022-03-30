@@ -12,6 +12,7 @@ public class YatzyService {
 	private HashMap<Integer, YatzyGame> activeGames;
 	UserDAO userdao;
 	YatzyGameDAO gamedao;
+	PlayerDAO playerdao; 
 	
 	
 	public int createGame(String username) {
@@ -25,11 +26,17 @@ public class YatzyService {
 		
 		Player player = new Player(user, game);
 		
+		playerdao.addNewPlayer(player);
 		
 		
 		
+	}
+	
+	public void startGame(int gameId, String username) {
 		
-		
+		YatzyGame game = gamedao.getGameById(gameId);
+		game.startGame();
+		gamedao.updateGame(game);
 		
 		
 	}
