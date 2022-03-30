@@ -81,6 +81,23 @@ public class Player {
 	public Player() {
 		
 	}
+	
+
+	public YatzyUser getYatzyUser() {
+		return yatzyUser;
+	}
+
+	public void setYatzyUser(YatzyUser yatzyUser) {
+		this.yatzyUser = yatzyUser;
+	}
+
+	public YatzyGame getYatzyGame() {
+		return yatzyGame;
+	}
+
+	public void setYatzyGame(YatzyGame yatzyGame) {
+		this.yatzyGame = yatzyGame;
+	}
 
 	public PlayerState getPlayerstate() {
 		return playerstate;
