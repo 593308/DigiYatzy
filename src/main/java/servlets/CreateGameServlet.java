@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,17 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import gameClasses.Player;
-import gameClasses.YatzyGame;
+import gameUtils.PlayerDAO;
+import gameUtils.YatzyGameDAO;
 import gameUtils.YatzyService;
+import utils.UserDAO;
 
 /**
  * Servlet implementation class CreateGameServlet
  */
 @WebServlet("/CreateGameServlet")
 public class CreateGameServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-
+	
+	@EJB 
+	YatzyGameDAO gamedao;
+	
+	@EJB 
+	PlayerDAO playerdao;
+	
+	@EJB 
+	UserDAO userdao;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -30,6 +41,7 @@ public class CreateGameServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/Game.jsp").forward(request, response);
+		System.out.println("Hei453234");
 	}
 		
 
@@ -41,20 +53,18 @@ public class CreateGameServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("Hei");
 		
-		String username = request.getParameter("username");
+		String username = "hei4";
 		
+	
 		
-		Player player = new Player();
-		
-		YatzyGame game = new YatzyGame();
-		
-		YatzyService service = new YatzyService();
+		YatzyService service = new YatzyService(userdao, gamedao, playerdao);
 		
 		Integer id = service.createGame(username);
 		HttpSession session= request.getSession(true);
 		session.setAttribute("GameId", id);
+		System.out.println("Hei2");
 		
 		response.sendRedirect("YatzyGameServlet");
 		

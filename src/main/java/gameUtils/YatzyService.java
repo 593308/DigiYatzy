@@ -12,14 +12,14 @@ import utils.UserDAO;
 public class YatzyService {
 
 	private HashMap<Integer, YatzyGame> activeGames;
-	@EJB
-	UserDAO userdao;
 	
-	@EJB
-	YatzyGameDAO gamedao;
+	private UserDAO userdao;
 	
-	@EJB
-	PlayerDAO playerdao;
+	
+	private YatzyGameDAO gamedao;
+	
+	
+	private PlayerDAO playerdao;
 	
 //	public byte[] poll(int gameId, int eventCounter) {
 //		YatzyGame game = gamedao.getGameById(gameId);
@@ -31,7 +31,14 @@ public class YatzyService {
 //		
 //	}
 	
-	
+	public YatzyService() {
+		
+	}
+	public YatzyService(UserDAO userdao, YatzyGameDAO gamedao, PlayerDAO playerdao) {
+		this.userdao = userdao;
+		this.gamedao = gamedao;
+		this.playerdao = playerdao;
+	}
 	public int createGame(String username) {
 		YatzyGame game = new YatzyGame(username);
 		
