@@ -22,58 +22,58 @@ table, th, td {
 	<table>
 
 		<tr><td></td></tr>
-		<tr>
+		<tr id="ones">
 			<td>Ones</td>
 		</tr>
-		<tr>
-			<td>Tows</td>
+		<tr id="twos">
+			<td>Twos</td>
 		</tr>
-		<tr>
+		<tr id="threes">
 			<td>Threes</td>
 		</tr>
-		<tr>
+		<tr id="fours">
 			<td>Fours</td>
 		</tr>
-		<tr>
+		<tr id="fives">
 			<td>Fives</td>
 		</tr>
-		<tr>
+		<tr id="sixes">
 			<td>Sixes</td>
 		</tr>
-		<tr>
+		<tr id="sum">
 			<th>Sum</th>
 		</tr>
-		<tr>
+		<tr id="bonus">
 			<th>Bonus</th>
 		</tr>
-		<tr>
+		<tr id="one pair">
 			<td>One pair</td>
 		</tr>
-		<tr>
+		<tr id="two pairs">
 			<td>Two pairs</td>
 		</tr>
-		<tr>
+		<tr id="three of a kind">
 			<td>Three of a kind</td>
 		</tr>
-		<tr>
+		<tr id="four of a kind">
 			<td>Four of a kind</td>
 		</tr>
-		<tr>
+		<tr id="small straight">
 			<td>Small straight</td>
 		</tr>
-		<tr>
+		<tr id="large straigh">
 			<td>Large straight</td>
 		</tr>
-		<tr>
+		<tr id="full house">
 			<td>Full house</td>
 		</tr>
-		<tr>
+		<tr id="chance">
 			<td>Chance</td>
 		</tr>
-		<tr>
+		<tr id="yatzy">
 			<td>Yatzy</td>
 		</tr>
-		<tr>
+		<tr id="total score">
 			<th>Total score</th>
 		</tr>
 
