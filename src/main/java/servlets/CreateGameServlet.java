@@ -67,6 +67,9 @@ public class CreateGameServlet extends HttpServlet {
 		session.setAttribute("die4", 4);
 		session.setAttribute("die5", 5);
 		
+//		Eksempel for johan, ikke fjern
+//		int[] players = {1,2,3};
+//		session.setAttribute("players", players);
 		
 		
 		response.sendRedirect("YatzyGameServlet");
