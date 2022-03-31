@@ -1,5 +1,14 @@
 @charset "ISO-8859-1";
 
+#score table,
+#score th,
+#score td,
+#score tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+
 .locked {
   background-color: #51df70;
 }
@@ -7,11 +16,6 @@
   background-color: white;
 }
 
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
 
 #die_1, #die_2, #die_3, #die_4, #die_5 {
 	
@@ -21,36 +25,23 @@ table, th, td {
 
     
 }
-
 	#die_1:hover{
 		  	background-color: rgb(128, 255, 128);
-	
 	}
-	
-	
 	#die_2:hover{
 		   background-color: rgb(128, 255, 128);
-	
 	}
-	
 	#die_3:hover{
 		   background-color: rgb(128, 255, 128);
-	
 	}
-	
-	
 	#die_4:hover{
 		   background-color: rgb(128, 255, 128);
-	
 	}
 	#die_5:hover{
 		   background-color: rgb(128, 255, 128);
 	
 	}
 	
-	
-	
-
 #dice{
   height: 100px;
   width: 300px;

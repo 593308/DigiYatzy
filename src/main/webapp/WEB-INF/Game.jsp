@@ -5,102 +5,102 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" 
-	href="Style.css" type="text/css" />
+<link rel="stylesheet" href="Style.css" type="text/css" />
 <title>DigiYatzy</title>
 </head>
 <body>
 
-	<h1>DigiYatzy</h1>
-	<table>
+ <h1>DigiYatzy</h1>
+    <div id="score">
+    <table>
+      <tr id="playas">
+        <th></th>
+        <th>Player1</th>
+      </tr>
+        
+    
+      <tr id="ones">
+        <td>Ones</td>
+      </tr>
+      <tr id="twos">
+        <td>Twos</td>
+      </tr>
+      <tr id="threes">
+        <td>Threes</td>
+      </tr>
+      <tr id="fours">
+        <td>Fours</td>
+      </tr>
+      <tr id="fives">
+        <td>Fives</td>
+      </tr>
+      <tr id="sixes">
+        <td>Sixes</td>
+      </tr>
+      <tr id="sum">
+        <th>Sum</th>
+      </tr>
+      <tr id="bonus">
+        <th>Bonus</th>
+      </tr>
+      <tr id="one pair">
+        <td>One pair</td>
+      </tr>
+      <tr id="two pairs">
+        <td>Two pairs</td>
+      </tr>
+      <tr id="three of a kind">
+        <td>Three of a kind</td>
+      </tr>
+      <tr id="four of a kind">
+        <td>Four of a kind</td>
+      </tr>
+      <tr id="small straight">
+        <td>Small straight</td>
+      </tr>
+      <tr id="large straigh">
+        <td>Large straight</td>
+      </tr>
+      <tr id="full house">
+        <td>Full house</td>
+      </tr>
+      <tr id="chance">
+        <td>Chance</td>
+      </tr>
+      <tr id="yatzy">
+        <td>Yatzy</td>
+      </tr>
+      <tr id="total score">
+        <th>Total score</th>
+      </tr>
+    </table>
+  </div>
 
-		<tr id="playas">
-			<td>Players -></td>
-			<c:forEach items="${player}" var="p">
-				<td>
-					<c:out value="${p.username}"></c:out>
-				</td>
-			
-			
-			
-			</c:forEach>
-	
-		</tr>
-		<tr id="ones">
-			<td>Ones</td>
-		</tr>
-		<tr id="twos">
-			<td>Twos</td>
-		</tr>
-		<tr id="threes">
-			<td>Threes</td>
-		</tr>
-		<tr id="fours">
-			<td>Fours</td>
-		</tr>
-		<tr id="fives">
-			<td>Fives</td>
-		</tr>
-		<tr id="sixes">
-			<td>Sixes</td>
-		</tr>
-		<tr id="sum">
-			<th>Sum</th>
-		</tr>
-		<tr id="bonus">
-			<th>Bonus</th>
-		</tr>
-		<tr id="one pair">
-			<td>One pair</td>
-		</tr>
-		<tr id="two pairs">
-			<td>Two pairs</td>
-		</tr>
-		<tr id="three of a kind">
-			<td>Three of a kind</td>
-		</tr>
-		<tr id="four of a kind">
-			<td>Four of a kind</td>
-		</tr>
-		<tr id="small straight">
-			<td>Small straight</td>
-		</tr>
-		<tr id="large straigh">
-			<td>Large straight</td>
-		</tr>
-		<tr id="full house">
-			<td>Full house</td>
-		</tr>
-		<tr id="chance">
-			<td>Chance</td>
-		</tr>
-		<tr id="yatzy">
-			<td>Yatzy</td>
-		</tr>
-		<tr id="total score">
-			<th>Total score</th>
-		</tr>
-
-
-
-
-
-
-	</table>
-	
 	<div id="dice">
-		<div id="die_1"><c:out value="${die1}"></c:out></div>
-		<div id="die_2"><c:out value="${die2}"></c:out></div>
-		<div id="die_3"><c:out value="${die3}"></c:out></div>
-		<div id="die_4"><c:out value="${die4}"></c:out></div>
-		<div id="die_5"><c:out value="${die5}"></c:out></div>
-		
+		<div id="die_1">
+			<c:out value="${die1}"></c:out>
+		</div>
+		<div id="die_2">
+			<c:out value="${die2}"></c:out>
+		</div>
+		<div id="die_3">
+			<c:out value="${die3}"></c:out>
+		</div>
+		<div id="die_4">
+			<c:out value="${die4}"></c:out>
+		</div>
+		<div id="die_5">
+			<c:out value="${die5}"></c:out>
+		</div>
+
 	</div>
-	
-	
+
+
 	<form id="takeRoll" action="YatzyGameServlet" method="post">
-		<input id="diceToBeRolled" type=hidden name="diceToBeRolled" value="00000"></input>
-		<button id="Roll" type="submit" value="Roll" name="Roll Dice">Roll Dice</button>
+		<input id="diceToBeRolled" type=hidden name="diceToBeRolled"
+			value="00000"></input>
+		<button id="Roll" type="submit" value="Roll" name="Roll Dice">Roll
+			Dice</button>
 	</form>
 
 
