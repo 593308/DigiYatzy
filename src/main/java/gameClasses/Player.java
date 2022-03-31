@@ -242,20 +242,7 @@ public class Player {
 		this.totalScore = totalScore;
 	}
 
-//	public byte[] marshall() {
-//		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//		try {
-//			ObjectOutputStream oos = new ObjectOutputStream(bos);
-//			oos.writeObject(this);
-//			oos.flush();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return bos.toByteArray();
-//		
-//		
-//	}
+
 	
 	
 
