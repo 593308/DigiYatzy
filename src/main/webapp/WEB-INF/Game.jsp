@@ -16,12 +16,12 @@
 	
 	
 	<tr id="playas">
-	<c:forEach items="${players}" var="p">
-        <th></th>
-        <th><c:out value="${p.username}"></c:out></th>
+		<c:forEach items="${players}" var="p">
+       	 	<th></th>
+        	<th><c:out value="${p.username}"></c:out></th>
 	
-	</c:forEach>
-       </tr>
+		</c:forEach>
+    </tr>
         
     
       <tr id="ones">
@@ -100,12 +100,12 @@
 
 	</div>
 
-
+	<!-- Form for Roll knappen, hidden value representerer hvilke terninger som skal trilles. Skal bare bestå av 0 og 1, der de
+	representerer true/false.
+	-->
 	<form id="takeRoll" action="YatzyGameServlet" method="post">
-		<input id="diceToBeRolled" type=hidden name="diceToBeRolled"
-			value="00000"></input>
-		<button id="Roll" type="submit" value="Roll" name="Roll Dice">Roll
-			Dice</button>
+		<input id="diceToBeRolled" type=hidden name="diceToBeRolled" value="00000"></input>
+		<button id="Roll" type="submit" value="Roll" name="Roll Dice">Roll Dice</button>
 	</form>
 
 

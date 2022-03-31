@@ -1,5 +1,6 @@
 @charset "ISO-8859-1";
 
+/*Johan som har skrevet */
 #score table,
 #score th,
 #score td,
@@ -8,7 +9,7 @@
   border-collapse: collapse;
 }
 
-
+/*Class styling. Har en terning locked i classList får den bakgrunnsfarge grønn. Har den Unlocked får den hvit.*/
 .locked {
   background-color: #51df70;
 }
@@ -16,7 +17,7 @@
   background-color: white;
 }
 
-
+/*Styling for terning elementer*/
 #die_1, #die_2, #die_3, #die_4, #die_5 {
 	
 	border: 1px solid black;
@@ -25,6 +26,7 @@
 
     
 }
+/*Bakgrunnen blir grønn når spiller holder musen over terning*/
 	#die_1:hover{
 		  	background-color: rgb(128, 255, 128);
 	}
@@ -41,7 +43,8 @@
 		   background-color: rgb(128, 255, 128);
 	
 	}
-	
+
+/*Hvis jeg må forklare denne eller den under kommer jeg til å miste det heeeeeelt*/
 #dice{
   height: 100px;
   width: 300px;
@@ -52,7 +55,7 @@
 	
 }
 
-
+/*KJØØØØØØØØH*/
 button {
   background-color: rgb(140, 141, 150);
   border-radius: 8px;
