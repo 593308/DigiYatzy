@@ -1,16 +1,11 @@
 package gameClasses;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import classes.YatzyUser;
@@ -60,7 +55,7 @@ public class Player {
 		yatzyGame.addPlayer(this);
 		yatzyUser.makePlayer(this);
 		
-		playerstate = playerstate.ACTIVE;
+		playerstate = PlayerState.ACTIVE;
 
 		onesScore = 0;
 		twosScore = 0;
