@@ -89,16 +89,18 @@
 	</table>
 	
 	<div id="dice">
-		<div id="die_1">0</div>
-		<div id="die_2">0</div>
-		<div id="die_3">0</div>
-		<div id="die_4">0</div>
-		<div id="die_5">0</div>
+		<div id="die_1"><c:out value="${die1}"></c:out></div>
+		<div id="die_2"><c:out value="${die2}"></c:out></div>
+		<div id="die_3"><c:out value="${die3}"></c:out></div>
+		<div id="die_4"><c:out value="${die4}"></c:out></div>
+		<div id="die_5"><c:out value="${die5}"></c:out></div>
 		
 	</div>
+	
+	
 	<form id="takeRoll" action="YatzyGameServlet" method="post">
 		<input id="diceToBeRolled" type=hidden name="diceToBeRolled" value="00000"></input>
-		<button type="submit" value="Roll" name="Roll Dice">Roll Dice</button>
+		<button id="Roll" type="submit" value="Roll" name="Roll Dice">Roll Dice</button>
 	</form>
 
 

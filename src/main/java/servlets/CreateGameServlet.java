@@ -61,7 +61,11 @@ public class CreateGameServlet extends HttpServlet {
 		session.setAttribute("GameId", id);
 		
 		
-		
+		session.setAttribute("die1", 1);
+		session.setAttribute("die2", 2);
+		session.setAttribute("die3", 3);
+		session.setAttribute("die4", 4);
+		session.setAttribute("die5", 5);
 		
 		
 		

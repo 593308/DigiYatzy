@@ -33,54 +33,57 @@ die_5.classList.add("unlocked");
 
 
 
-let updateDice = function (die1, die2, die3, die4, die5, diceLocked) {
-   
-    diceLocked = "";
+let updateDice = function () {
+    diceToBeRolled.Value = "";
 
-    if (die1.classList.contains("locked")) {
-        diceLocked += 0;
-    }
-    else {
-        diceLocked += 1;
-    }
+    if (die_1.classList.contains("locked")) {
+        diceToBeRolled.Value += 0;
 
-    if (die2.classList.contains("locked")) {
-        diceLocked += 0;
     }
     else {
-        diceLocked += 1;
-    }
-    if (die3.classList.contains("locked")) {
-        diceLocked += 0;
-    }
-    else {
-        diceLocked += 1;
-    }
-    if (die4.classList.contains("locked")) {
-        diceLocked += 0;
-    }
-    else {
-        diceLocked += 1;
-    }
-    if (die5.classList.contains("locked")) {
-        diceLocked += 0;
-    }
-    else {
-        diceLocked += 1;
+        diceToBeRolled.Value += 1;
+
+
     }
 
-    diceToBeRolled.value = diceLocked;
-	
+    if (die_2.classList.contains("locked")) {
+        diceToBeRolled.Value += 0;
+    }
+    else {
+        diceToBeRolled.Value += 1;
+    }
+    if (die_3.classList.contains("locked")) {
+        diceToBeRolled.Value += 0;
+    }
+    else {
+        diceToBeRolled.Value += 1;
+    }
+    if (die_4.classList.contains("locked")) {
+        diceToBeRolled.Value += 0;
+    }
+    else {
+        diceToBeRolled.Value += 1;
+    }
+    if (die_5.classList.contains("locked")) {
+        diceToBeRolled.Value += 0;
+    }
+    else {
+        diceToBeRolled.Value += 1;
+    }
+
+
+    console.log(diceToBeRolled.Value);
 
 
 }
-takeRoll.addEventListener("submit", updateDice(die_1, die_2, die_3, die_4, die_5, diceLocked), false);
+takeRoll.addEventListener("submit", updateDice(), false);
 
 
 
 
 
 function changeBackgroundColor(evt) {
+
 
     if (document.getElementById(evt.currentTarget.myParam).classList.contains("locked")) {
         document.getElementById(evt.currentTarget.myParam).classList.remove("locked");
@@ -89,6 +92,8 @@ function changeBackgroundColor(evt) {
         document.getElementById(evt.currentTarget.myParam).classList.remove("unlocked");
         document.getElementById(evt.currentTarget.myParam).classList.add("locked");
     }
+	
+	updateDice();
 
 }
 
