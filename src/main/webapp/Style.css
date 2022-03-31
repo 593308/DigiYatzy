@@ -1,0 +1,60 @@
+@charset "ISO-8859-1";
+
+
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#die_1, #die_2, #die_3, #die_4, #die_5 {
+	
+	border: 1px solid black;
+	display: inline-block;
+    padding: 1rem 1rem;
+
+    
+}
+
+	#die_1:hover{
+		  	background-color: rgb(128, 255, 128);
+	
+	}
+	
+	
+	#die_2:hover{
+		   background-color: rgb(128, 255, 128);
+	
+	}
+	
+	#die_3:hover{
+		   background-color: rgb(128, 255, 128);
+	
+	}
+	
+	
+	#die_4:hover{
+		   background-color: rgb(128, 255, 128);
+	
+	}
+	#die_5:hover{
+		   background-color: rgb(128, 255, 128);
+	
+	}
+	
+	
+	
+
+#dice{
+  height: 100px;
+  width: 300px;
+  padding: 50px;
+  margin: 50px auto;
+  position: absolute;
+  left: auto;
+	
+}
+
+	
+	
+	

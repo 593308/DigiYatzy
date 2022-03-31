@@ -5,15 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet"
-	href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
-
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-</style>
+<link rel="stylesheet" 
+	href="Style.css" type="text/css" />
 <title>DigiYatzy</title>
 </head>
 <body>
@@ -23,9 +16,7 @@ table, th, td {
 
 		<tr id="playas">
 			<td>Players -></td>
-			<c:forEach items="${players}" var="p">
-				<td>${p.username}</td>
-			</c:forEach>
+	
 		</tr>
 		<tr id="ones">
 			<td>Ones</td>
@@ -88,9 +79,18 @@ table, th, td {
 
 
 	</table>
+	
+	<div id="dice">
+		<div id="die_1" onclick="changeBackground()">1</div>
+		<div id="die_2">2</div>
+		<div id="die_3">3</div>
+		<div id="die_4">4</div>
+		<div id="die_5">5</div>
+		
+	</div>
 
 
 
-
+	<script src="LogicYatzy.js"></script>
 </body>
 </html>
