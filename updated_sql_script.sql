@@ -26,6 +26,7 @@ CREATE TABLE yatzyGame
 	die2Value INTEGER,
 	die3Value INTEGER,
 	die4Value INTEGER,
+	lastInput TIMESTAMP,
 	PRIMARY KEY (gameid)
 );
 

@@ -1,8 +1,7 @@
 package gameClasses;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +40,8 @@ public class YatzyGame {
 	private int die2Value;
 	private int die3Value;
 	private int die4Value;
+	private LocalDateTime lastInput;
+	
 
 
 	public YatzyGame(String hostPlayer) {
@@ -56,6 +57,7 @@ public class YatzyGame {
 		die2Value = 0;
 		die3Value = 0;
 		die4Value = 0;
+		lastInput = LocalDateTime.now();
 
 	}
 
@@ -76,12 +78,18 @@ public class YatzyGame {
 		currentPlayer = players.get(0).getYatzyUser().getUsername();
 		roundCount = 1;
 		gameState = GameState.PLAYER_TURN;
+		lastInput = LocalDateTime.now();
 
 	}
 
 	public void rollDice(String username, boolean[] diceselection) {
 
-		currentPlayer = username;
+		if (currentPlayer.equals(username)) {
+			
+		if (diceRollCount == 0) {
+			diceselection = new boolean[] {false, false, false, false, false};
+		}
+			
 
 		if (!diceselection[0]) {
 			die0Value = (int) ((Math.random() * 5) + 1);
@@ -100,7 +108,11 @@ public class YatzyGame {
 			die4Value = (int) ((Math.random() * 5) + 1);
 		}
 
+		
 		advanceTurn();
+		lastInput = LocalDateTime.now();
+		} else
+			return;
 
 	}
 
@@ -114,6 +126,22 @@ public class YatzyGame {
 		}
 
 	}
+	
+	private void iterateTurn() {
+		int index = findIndexOfPlayer(currentPlayer);
+		do {
+
+			if (players.size() == index + 1)
+				endRound();
+			else if (index == -1 || 100 == 2) {
+				System.out.println("failure. Player not found in game");
+				return;
+			} else {
+				index += 1;
+				currentPlayer = players.get(index).getYatzyUser().getUsername();
+			}
+		} while (players.get(index).getPlayerstate().equals(PlayerState.INACTIVE));
+	}
 
 	public void endTurn(String username) {
 		if (diceRollCount == 0 || !username.equals(currentPlayer))
@@ -121,10 +149,19 @@ public class YatzyGame {
 
 		diceRollCount = 0;
 		strikeCount = 0;
+		lastInput = LocalDateTime.now();
+		setScore();
+		
+		iterateTurn();
+
+		
+
+	}
+	
+	private void setScore() {
 		ScoreCalculator sc = new ScoreCalculator();
 		int score = sc.calculateScore(getDiceValues(), roundCount);
-
-		int index = findIndexOfPlayer(username);
+		int index = findIndexOfPlayer(currentPlayer);
 		switch (roundCount) {
 		case 1:
 			players.get(index).setOnesScore(score);
@@ -172,20 +209,6 @@ public class YatzyGame {
 			players.get(index).setYatzyScore(score);
 			break;
 		}
-
-		do {
-
-			if (players.size() == index + 1)
-				endRound();
-			else if (index == -1 || 100 == 2) {
-				System.out.println("failure. Player not found in game");
-				return;
-			} else {
-				index += 1;
-				currentPlayer = players.get(index).getYatzyUser().getUsername();
-			}
-		} while (players.get(index).getPlayerstate().equals(PlayerState.INACTIVE));
-
 	}
 
 	private void endRound() {
@@ -204,9 +227,29 @@ public class YatzyGame {
 
 	public void poke(String username) {
 
-		if (username.equals(currentPlayer))
+		if (username.equals(currentPlayer) || gameState != GameState.PLAYER_TURN)
 			return;
+		
+		Duration duration = Duration.between(LocalDateTime.now(), lastInput);
+		
+		if (duration.getSeconds() > 15) {
+			strikeCount++;
+			lastInput = LocalDateTime.now();
+			if (strikeCount >= 3)
+				kick(currentPlayer);
+				
+		}
 
+	}
+	
+	private void kick(String username) {
+		Player player = players.get(findIndexOfPlayer(username));
+		player.setPlayerstate(PlayerState.INACTIVE);
+		diceRollCount = 0;
+		strikeCount = 0;
+		
+		iterateTurn();
+		
 	}
 
 	public List<Integer> getDiceValues() {
