@@ -49,15 +49,20 @@ public class CreateGameServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String username = "hei4";
+		
+		
 		
 	
 		
 		YatzyService service = new YatzyService(userdao, gamedao, playerdao);
-		
-		Integer id = service.createGame(username);
 		HttpSession session= request.getSession(true);
+		String username = (String) session.getAttribute("username");
+		Integer id = service.createGame(username);
 		session.setAttribute("GameId", id);
+		
+		
+		
+		
 		
 		
 		response.sendRedirect("YatzyGameServlet");
