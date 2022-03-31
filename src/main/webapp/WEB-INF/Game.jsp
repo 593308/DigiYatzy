@@ -17,9 +17,9 @@
 		<tr id="playas">
 			<td>Players -></td>
 			<c:forEach items="${player}" var="p">
-			
-			<c:out value=""></c:out><tr>${p.username}</tr>
-			
+				<td>
+					<c:out value="${p.username}"></c:out>
+				</td>
 			
 			
 			
@@ -89,16 +89,17 @@
 	</table>
 	
 	<div id="dice">
-		<div id="die_1" onclick="changeBackground()">1</div>
-		<div id="die_2">2</div>
-		<div id="die_3">3</div>
-		<div id="die_4">4</div>
-		<div id="die_5">5</div>
+		<div id="die_1">0</div>
+		<div id="die_2">0</div>
+		<div id="die_3">0</div>
+		<div id="die_4">0</div>
+		<div id="die_5">0</div>
 		
 	</div>
-	
-	<button type="button">Roll Dice</button>
-
+	<form id="takeRoll" action="YatzyGameServlet" method="post">
+		<input id="diceToBeRolled" type=hidden name="diceToBeRolled" value="00000"></input>
+		<button type="submit" value="Roll" name="Roll Dice">Roll Dice</button>
+	</form>
 
 
 	<script src="LogicYatzy.js"></script>
