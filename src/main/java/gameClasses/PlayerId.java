@@ -2,7 +2,6 @@ package gameClasses;
 
 import javax.persistence.Embeddable;
 
-import classes.YatzyUser;
 
 @Embeddable
 public class PlayerId {
@@ -14,5 +13,23 @@ public class PlayerId {
 		this.yatzyUser = yatzyUser;
 		this.yatzyGame = yatzyGame;
 	}
+
+	public String getYatzyUser() {
+		return yatzyUser;
+	}
+
+	public void setYatzyUser(String yatzyUser) {
+		this.yatzyUser = yatzyUser;
+	}
+
+	public int getYatzyGame() {
+		return yatzyGame;
+	}
+
+	public void setYatzyGame(int yatzyGame) {
+		this.yatzyGame = yatzyGame;
+	}
+	
+	
 
 }

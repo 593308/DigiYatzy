@@ -8,11 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import classes.YatzyUser;
 import gameClasses.Player;
 import gameClasses.PlayerId;
-import gameClasses.YatzyGame;
-import utils.DAO;
 
 @Stateless
 @LocalBean
