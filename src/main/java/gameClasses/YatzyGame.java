@@ -42,7 +42,6 @@ public class YatzyGame {
 	private int die3Value;
 	private int die4Value;
 
-//	private Die[] dice;
 
 	public YatzyGame(String hostPlayer) {
 		this.hostPlayer = hostPlayer;
@@ -57,11 +56,6 @@ public class YatzyGame {
 		die2Value = 0;
 		die3Value = 0;
 		die4Value = 0;
-
-//		for (int i = 0; i < 5; i++)
-//			dice[i] = new Die(i);
-
-//		dice = null;
 
 	}
 
@@ -86,16 +80,6 @@ public class YatzyGame {
 	}
 
 	public void rollDice(String username, boolean[] diceselection) {
-
-//		List<Integer> dice = new ArrayList<Integer>();
-//		
-//		dice.add(die0Value);
-//		dice.add(die1Value);
-//		dice.add(die2Value);
-//		dice.add(die3Value);
-//		dice.add(die4Value);
-//		
-//		dice.stream().forEach(x -> x = (int) ((Math.random() *5) + 1));
 
 		currentPlayer = username;
 
@@ -218,6 +202,25 @@ public class YatzyGame {
 
 	}
 
+	public void poke(String username) {
+
+		if (username.equals(currentPlayer))
+			return;
+
+	}
+
+	public List<Integer> getDiceValues() {
+		List<Integer> dice = new ArrayList<Integer>();
+
+		dice.add(die0Value);
+		dice.add(die1Value);
+		dice.add(die2Value);
+		dice.add(die3Value);
+		dice.add(die4Value);
+
+		return dice;
+	}
+
 	private int findIndexOfPlayer(String username) {
 		for (int i = 0; i < players.size(); i++) {
 			if (players.get(i).getYatzyUser().getUsername().equals(username))
@@ -226,22 +229,6 @@ public class YatzyGame {
 
 		return -1;
 	}
-
-//	public byte[] marshall() {
-//		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//		try {
-//			ObjectOutputStream oos = new ObjectOutputStream(bos);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		
-//		
-//		List<byte[]> playersAsBytes = new ArrayList<byte[]>();
-//		
-//		players.stream().forEach(p -> playersAsBytes.add(p.marshall()));
-//		
-//	}
 
 	public String getHostPlayer() {
 		return hostPlayer;
@@ -353,23 +340,6 @@ public class YatzyGame {
 
 	public int getGameId() {
 		return gameId;
-	}
-
-	public void poke(String username) {
-		// TODO
-
-	}
-
-	public List<Integer> getDiceValues() {
-		List<Integer> dice = new ArrayList<Integer>();
-
-		dice.add(die0Value);
-		dice.add(die1Value);
-		dice.add(die2Value);
-		dice.add(die3Value);
-		dice.add(die4Value);
-
-		return dice;
 	}
 
 }

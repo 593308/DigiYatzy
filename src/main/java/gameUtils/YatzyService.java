@@ -1,8 +1,6 @@
 package gameUtils;
 
-import java.util.HashMap;
 
-import javax.ejb.EJB;
 
 import classes.YatzyUser;
 import gameClasses.Player;
@@ -11,7 +9,6 @@ import utils.UserDAO;
 
 public class YatzyService {
 
-	private HashMap<Integer, YatzyGame> activeGames;
 
 	
 	private UserDAO userdao;
