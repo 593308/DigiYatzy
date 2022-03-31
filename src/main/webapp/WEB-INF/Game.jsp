@@ -16,6 +16,14 @@
 
 		<tr id="playas">
 			<td>Players -></td>
+			<c:forEach items="${player}" var="p">
+			
+			<c:out value=""></c:out><tr>${p.username}</tr>
+			
+			
+			
+			
+			</c:forEach>
 	
 		</tr>
 		<tr id="ones">
