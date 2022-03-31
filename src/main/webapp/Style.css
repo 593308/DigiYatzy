@@ -1,11 +1,12 @@
 @charset "ISO-8859-1";
 
 .locked {
-    background-color: green;
+  background-color: #51df70;
 }
 .unlocked {
-    background-color: white;
+  background-color: white;
 }
+
 
 table, th, td {
   border: 1px solid black;
