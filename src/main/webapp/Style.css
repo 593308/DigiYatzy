@@ -61,6 +61,19 @@ table, th, td {
 	
 }
 
+
+button {
+  background-color: rgb(140, 141, 150);
+  border-radius: 8px;
+  border: none;
+  color: rgb(17, 16, 16);
+  padding: 1rem 1rem;
+  position: relative;
+  right: auto;
+  text-transform: uppercase;
+  width: 200px;
+}
+
 	
 	
 	

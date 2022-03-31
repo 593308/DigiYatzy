@@ -88,6 +88,8 @@
 		<div id="die_5">5</div>
 		
 	</div>
+	
+	<button type="button">Roll Dice</button>
 
 
 
