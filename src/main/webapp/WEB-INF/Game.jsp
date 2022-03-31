@@ -13,10 +13,15 @@
  <h1>DigiYatzy</h1>
     <div id="score">
     <table>
-      <tr id="playas">
+	
+	
+	<tr id="playas">
+	<c:forEach items="${players}" var="p">
         <th></th>
-        <th>Player1</th>
-      </tr>
+        <th><c:out value="${p.username}"></c:out></th>
+	
+	</c:forEach>
+       </tr>
         
     
       <tr id="ones">
