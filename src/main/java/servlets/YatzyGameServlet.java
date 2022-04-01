@@ -45,8 +45,10 @@ public class YatzyGameServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("TEST: doGet");
 		YatzyGame game = yatzygamedao.getGameById((int)request.getSession().getAttribute("gameId"));
 		request.getSession().setAttribute("game", game);
+		System.out.println("TEST: " + ((YatzyGame) request.getSession().getAttribute("game")).getGameId());
 		request.getRequestDispatcher("WEB-INF/Game.jsp").forward(request, response);
 	}
 
@@ -70,22 +72,30 @@ public class YatzyGameServlet extends HttpServlet {
 		
 		String selection = request.getParameter("diceSelection");
 		
+		System.out.println("TEST: " + selection);
 		
-		boolean[] diceSelector = new boolean[]{false, false, false, false, false};
+		
+		boolean[] diceSelector = new boolean[]{true, true, true, true, true};
 		for (int i=0; i<selection.length(); i++) {
-			if (selection.charAt(i) == 1)
-				diceSelector[i] = true;
+			if (selection.charAt(i) == '0')
+				diceSelector[i] = false;
 		}
+		
+		for (int i = 0; i < 5; i++) 
+			System.out.print(diceSelector[i] + ", ");
+		
+		
+		
 		
 		
 		if (true) {
 			if (yatzygamedao.getGameById(gameId).getGameState() == GameState.PLAYER_JOIN)
 				service.startGame(gameId, username);	
 			service.rollDice(gameId, username, diceSelector);
+			response.sendRedirect("YatzyGameServlet");
 		}
 		
 		
-		doGet(request,response);
 	}
 
 }

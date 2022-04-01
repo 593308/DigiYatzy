@@ -91,24 +91,21 @@ public class YatzyGame {
 
 		if (currentPlayer.equals(username)) {
 
-			if (diceRollCount == 0) {
-				diceselection = new boolean[] { false, false, false, false, false };
-			}
 
-			if (!diceselection[0]) {
+			if (diceselection[0]) {
 				die0Value = (int) ((Math.random() * 5) + 1);
 			}
 
-			if (!diceselection[1]) {
+			if (diceselection[1]) {
 				die1Value = (int) ((Math.random() * 5) + 1);
 			}
-			if (!diceselection[2]) {
+			if (diceselection[2]) {
 				die2Value = (int) ((Math.random() * 5) + 1);
 			}
-			if (!diceselection[3]) {
+			if (diceselection[3]) {
 				die3Value = (int) ((Math.random() * 5) + 1);
 			}
-			if (!diceselection[4]) {
+			if (diceselection[4]) {
 				die4Value = (int) ((Math.random() * 5) + 1);
 			}
 
