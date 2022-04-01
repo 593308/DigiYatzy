@@ -64,7 +64,7 @@ public class RegisterServlet extends HttpServlet {
 //		
 //		yatzygamedao.createGame(testGame);
 		
-		
+		request.getSession().setAttribute("username", username);
 		
 		userdao.addNewUser(registering_user);
 		
