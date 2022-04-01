@@ -16,7 +16,7 @@
 	
 	
 	<tr id="playas">
-		<c:forEach items="${players}" var="p">
+		<c:forEach items="${game.players}" var="p">
        	 	<th></th>
         	<th><c:out value="${p.username}"></c:out></th>
 	
@@ -83,7 +83,7 @@
 
 	<div id="dice">
 		<div id="die_1">
-			<c:out value="${die1}"></c:out>
+			<c:out value="${game.die1Value}"></c:out> <!-- Må sette game som attributt, og bruke game.die1 osv -->
 		</div>
 		<div id="die_2">
 			<c:out value="${die2}"></c:out>

@@ -104,4 +104,88 @@ function changeStatus(evt) {
 
 }
 
+//Her begynner Jørgen sin kuking i javascript
+function rollDice() {
+	
+	//Sjekker om det er din tur
+	if (currentId == playerId) {
+		
+		
+		let diceSelection = document.getElementById("diceToBeRolled").Value;
+		
+		/**
+		Send rollDice request til POST, med parameter som trengs:
+		gameid, username, diceselection
+		 */
+		
+		
+	}
+	
+	else {
+		alert("Not your turn!");
+	}
+	
+	updateGameStatus();
+	
+}
+
+function makeRequestVoid(url) {
+
+	var request = new XMLHttpRequest();
+	request.open("GET", url, false);
+	request.send();
+}
+
+function makeRequest(url) {
+		var request = new XMLHttpRequest();
+		request.open("GET", url, false);
+		request.send();
+	
+		if (request.responseText) {
+	
+		var parser = new DOMParser();
+		var xmlDoc = parser.parseFromString(request.responseText,
+					"text/xml");
+	
+		return xmlDoc;
+		} else {
+			return null;
+			}
+}
+
+//Oppdaterer gamet
+function updateGameStatus(gameId) {
+	
+	//Request til GET i Game-servlet, med username som param?
+	
+	
+}
+
+//Funksjonen kalles når spillet settes i gang (vet ikke helt hvordan enda)
+function startOfGame() {
+	
+}
+
+function continousUpdate(playing) {
+	setInterval(function() {
+		if (playing) {
+			
+			updateGameStatus(gameId);
+			
+		}
+	}, 1000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
