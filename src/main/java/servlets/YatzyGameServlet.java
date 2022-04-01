@@ -1,6 +1,10 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -10,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import classes.YatzyUser;
 import gameClasses.YatzyGame;
 import gameUtils.GameState;
 import gameUtils.PlayerDAO;
@@ -47,8 +52,16 @@ public class YatzyGameServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("TEST: doGet");
 		YatzyGame game = yatzygamedao.getGameById((int)request.getSession().getAttribute("gameId"));
+		request.setAttribute("players", game.getPlayers());
+		
+		List<YatzyUser> usernames = game.getPlayers().stream().map(p -> p.getYatzyUser()).collect(Collectors.toList());
+		
+		request.setAttribute("players", usernames);
+		
+		
+		
 		request.getSession().setAttribute("game", game);
-		System.out.println("TEST: " + ((YatzyGame) request.getSession().getAttribute("game")).getGameId());
+		System.out.println("TEST: Game die 1 = " + game.getDie0Value() + " Game die 2 = " + game.getDie1Value());
 		request.getRequestDispatcher("WEB-INF/Game.jsp").forward(request, response);
 	}
 
@@ -58,6 +71,8 @@ public class YatzyGameServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		YatzyService service = new YatzyService(userdao, yatzygamedao, playerdao);
+		
+		
 //		System.out.println(request.getParameter("diceToBeRolled"));
 //		
 //		System.out.println(request.getParameter("Roll Dice"));
