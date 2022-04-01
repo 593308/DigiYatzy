@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import gameUtils.GameState;
 import gameUtils.PlayerDAO;
 import gameUtils.YatzyGameDAO;
 import gameUtils.YatzyService;
@@ -64,13 +65,14 @@ public class YatzyGameServlet extends HttpServlet {
 		
 		int gameId = (int)(session.getAttribute("gameId"));
 		
-		service.startGame(gameId, username);
 		
 		
 		
 		
 		boolean[] testgreier = new boolean[]{false, false, false, false, false};
 		if (rolledDice != null) {
+			if (yatzygamedao.getGameById(gameId).getGameState() == GameState.PLAYER_JOIN)
+				service.startGame(gameId, username);	
 			service.rollDice(gameId, username, testgreier);
 		}
 		

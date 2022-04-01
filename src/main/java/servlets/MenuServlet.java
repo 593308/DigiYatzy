@@ -68,6 +68,7 @@ public class MenuServlet extends HttpServlet {
 			gameId = service.createGame(username);
 			System.out.println("Game with id" + gameId + " has successfully been created by " + username);
 			session.setAttribute("gameId", gameId);
+			session.setAttribute("game", gamedao.getGameById(gameId));
 			response.sendRedirect("YatzyGameServlet");
 			
 			
