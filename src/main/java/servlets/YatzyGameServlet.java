@@ -76,7 +76,7 @@ public class YatzyGameServlet extends HttpServlet {
 		
 		
 		boolean[] testgreier = new boolean[]{false, false, false, false, false};
-		if (rolledDice != null) {
+		if (true) {
 			if (yatzygamedao.getGameById(gameId).getGameState() == GameState.PLAYER_JOIN)
 				service.startGame(gameId, username);	
 			service.rollDice(gameId, username, testgreier);

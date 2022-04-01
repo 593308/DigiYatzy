@@ -66,7 +66,12 @@ public class YatzyService {
 		
 		PlayerId playerId = new PlayerId(username, gameId);
 		
-		playerdao.updatePlayer(playerdao.getPlayer(playerId));
+		//playerdao.updatePlayer(playerdao.getPlayer(playerId));
+		
+		
+		playerdao.updatePlayer(game.getPlayers().get(game.findIndexOfPlayer(username)));
+		
+		
 		
 
 		gamedao.updateGame(game);
@@ -74,6 +79,9 @@ public class YatzyService {
 
 	public void endTurn(int gameId, String username) {
 		YatzyGame game = gamedao.getGameById(gameId);
+		gamedao.updateGame(game);
+		System.out.println("TEST: updating game with gameID = "+ gameId);
+		System.out.println("TEST: ending turn for = "+ username);
 		game.endTurn(username);
 	}
 

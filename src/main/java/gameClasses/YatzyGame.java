@@ -172,16 +172,18 @@ public class YatzyGame {
 		case 1:
 			players.get(index).setOnesScore(score);
 			System.out.println("TEST: setting onesScore for player" + currentPlayer + " | onesScore = " + score);
+			
 			break;
 		case 2:
-			System.out.println("TEST: setting twosScore");
+			System.out.println("TEST: setting twosScore for player " + currentPlayer + " | twosScore = " + score);
 			players.get(index).setTwosScore(score);
 			break;
 		case 3:
-			System.out.println("TEST: setting threesScore");
+			System.out.println("TEST: setting threesScore for player " + currentPlayer + " | threesScore = " + score);
 			players.get(index).setThreesScore(score);
 			break;
 		case 4:
+			System.out.println("TEST: setting foursScore for player " + currentPlayer + " | foursScore = " + score);
 			players.get(index).setFoursScore(score);
 			break;
 		case 5:
@@ -273,7 +275,7 @@ public class YatzyGame {
 		return dice;
 	}
 
-	private int findIndexOfPlayer(String username) {
+	public int findIndexOfPlayer(String username) {
 		for (int i = 0; i < players.size(); i++) {
 			if (players.get(i).getYatzyUser().getUsername().equals(username))
 				return i;
