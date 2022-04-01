@@ -2,6 +2,12 @@
 
 let diceLocked = "00000";
 
+//Her er variabler jeg tror må hentes ut fra Game, og skrives i HTML
+//enten skjult eller som info (som kan være nyttig)
+let finished = false;
+let playerInTurn;
+let currentPlayer;
+
 
 let die_1 = document.getElementById("die_1");
 let die_2 = document.getElementById("die_2");
@@ -106,33 +112,30 @@ function changeStatus(evt) {
 }
 
 //Her begynner Jørgen sin kuking i javascript
+
+//funskjonen funker, sender til post i gameServlet hvilke terninger som trilles
 function rollDice() {
 	
-	//Sjekker om det er din tur
+	//OBS! Må sjekke om det er din tur (playerinturn == currentplayer)
 	
 		console.log("disse dice sendes til servlet: " + diceToBeRolled);
 		
-		makeRequestVoid("/DigiYatzy/YatzyGameServlet" +
+		makePostRequestVoid("/DigiYatzy/YatzyGameServlet" +
 						"?diceSelection=" + diceToBeRolled);
-		
-		/**
-		Send rollDice request til POST, med parameter som trengs:
-		gameid, username, diceselection
-		 */
-		
 	
-	updateGameStatus();
+	//updateGameStatus();
 	
 }
 
-function makeRequestVoid(url) {
+//DISSE ER AJAX KALL TIL SERVLETENE
+function makePostRequestVoid(url) {
 
 	var request = new XMLHttpRequest();
 	request.open("POST", url, false);
 	request.send();
 }
 
-function makeRequest(url) {
+function makePostRequest(url) {
 		var request = new XMLHttpRequest();
 		request.open("POST", url, false);
 		request.send();
@@ -149,22 +152,51 @@ function makeRequest(url) {
 			}
 }
 
+function makeGetRequestVoid(url) {
+
+	var request = new XMLHttpRequest();
+	request.open("GET", url, false);
+	request.send();
+}
+
+function makeGetRequest(url) {
+		var request = new XMLHttpRequest();
+		request.open("GET", url, false);
+		request.send();
+	
+		if (request.responseText) {
+	
+		var parser = new DOMParser();
+		var xmlDoc = parser.parseFromString(request.responseText,
+					"text/xml");
+	
+		return xmlDoc;
+		} else {
+			return null;
+			}
+}
+
 //Oppdaterer gamet
-function updateGameStatus(gameId) {
+function updateGameStatus() {
 	
-	//Request til GET i Game-servlet, med username som param?
+	//Gjør basicolly bare en ny GET ved å sende en request?
 	
+	makeGetRequestVoid("/DigiYatzy/YatzyGameServlet");
 	
 }
 
 //Funksjonen kalles når spillet settes i gang (vet ikke helt hvordan enda)
-function startOfGame() {
+function startGame() {
+	
+	continousUpdate(finished);
+	
 	
 }
 
-function continousUpdate(playing) {
+//Etter spillet er started oppdateres spillet helt til finished
+function continousUpdate(finished) {
 	setInterval(function() {
-		if (playing) {
+		if (!finished) {
 			
 			updateGameStatus(gameId);
 			

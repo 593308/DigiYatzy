@@ -56,11 +56,11 @@ public class YatzyGameServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		YatzyService service = new YatzyService(userdao, yatzygamedao, playerdao);
-		System.out.println(request.getParameter("diceToBeRolled"));
-		
-		System.out.println(request.getParameter("Roll Dice"));
-		
-		String rolledDice = request.getParameter("Roll Dice");
+//		System.out.println(request.getParameter("diceToBeRolled"));
+//		
+//		System.out.println(request.getParameter("Roll Dice"));
+//		
+//		String rolledDice = request.getParameter("Roll Dice");
 		
 		HttpSession session= request.getSession(true);
 		String username = (String) session.getAttribute("username");
@@ -69,17 +69,19 @@ public class YatzyGameServlet extends HttpServlet {
 		int gameId = (int)(session.getAttribute("gameId"));
 		
 		String selection = request.getParameter("diceSelection");
-		System.out.println(selection);
 		
 		
+		boolean[] diceSelector = new boolean[]{false, false, false, false, false};
+		for (int i=0; i<selection.length(); i++) {
+			if (selection.charAt(i) == 1)
+				diceSelector[i] = true;
+		}
 		
 		
-		
-		boolean[] testgreier = new boolean[]{false, false, false, false, false};
 		if (true) {
 			if (yatzygamedao.getGameById(gameId).getGameState() == GameState.PLAYER_JOIN)
 				service.startGame(gameId, username);	
-			service.rollDice(gameId, username, testgreier);
+			service.rollDice(gameId, username, diceSelector);
 		}
 		
 		
