@@ -1,6 +1,6 @@
 "use strict";
 
-let diceLocked = "00000";
+let diceLocked = "11111";
 
 //Her er variabler jeg tror må hentes ut fra Game, og skrives i HTML
 //enten skjult eller som info (som kan være nyttig)
@@ -17,7 +17,7 @@ let die_5 = document.getElementById("die_5");
 
 //Tilhørende element er på linje 105 i game.jsp
 //let diceToBeRolled = document.getElementById("diceToBeRolled");
-let diceToBeRolled = "00000";
+let diceToBeRolled = "11111";
 
 let takeRoll = document.getElementById("takeRoll");
 
