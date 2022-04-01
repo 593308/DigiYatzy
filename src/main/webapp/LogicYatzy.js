@@ -10,7 +10,8 @@ let die_4 = document.getElementById("die_4");
 let die_5 = document.getElementById("die_5");
 
 //Tilhørende element er på linje 105 i game.jsp
-let diceToBeRolled = document.getElementById("diceToBeRolled");
+//let diceToBeRolled = document.getElementById("diceToBeRolled");
+let diceToBeRolled = "00000";
 
 let takeRoll = document.getElementById("takeRoll");
 
@@ -40,45 +41,45 @@ die_5.classList.add("unlocked");
 
 //Har som mål å oppdatere hidden value for diceToBeRolled, sjekk linje 105 i Game.jsp
 let updateDice = function () {
-    diceToBeRolled.Value = "";
+    diceToBeRolled = "";
 
     if (die_1.classList.contains("locked")) {
-        diceToBeRolled.Value += 0;
+        diceToBeRolled += 0;
 
     }
     else {
-        diceToBeRolled.Value += 1;
+        diceToBeRolled += 1;
 
 
     }
 
     if (die_2.classList.contains("locked")) {
-        diceToBeRolled.Value += 0;
+        diceToBeRolled += 0;
     }
     else {
-        diceToBeRolled.Value += 1;
+        diceToBeRolled += 1;
     }
     if (die_3.classList.contains("locked")) {
-        diceToBeRolled.Value += 0;
+        diceToBeRolled += 0;
     }
     else {
-        diceToBeRolled.Value += 1;
+        diceToBeRolled += 1;
     }
     if (die_4.classList.contains("locked")) {
-        diceToBeRolled.Value += 0;
+        diceToBeRolled += 0;
     }
     else {
-        diceToBeRolled.Value += 1;
+        diceToBeRolled += 1;
     }
     if (die_5.classList.contains("locked")) {
-        diceToBeRolled.Value += 0;
+        diceToBeRolled += 0;
     }
     else {
-        diceToBeRolled.Value += 1;
+        diceToBeRolled += 1;
     }
 
 	//Linjen trengs ikke, men viser hva som skjer underveis på klientsiden
-    console.log(document.getElementById("diceToBeRolled").Value);
+    console.log(diceToBeRolled);
 
 
 }
@@ -108,27 +109,17 @@ function changeStatus(evt) {
 function rollDice() {
 	
 	//Sjekker om det er din tur
-	if (currentId == playerId) {
-		
-		
-		let diceSelection = document.getElementById("diceToBeRolled").Value;
-		
-		 console.log("disse dice sendes til servlet: " + document.getElementById("diceToBeRolled").Value);
+	
+		console.log("disse dice sendes til servlet: " + diceToBeRolled);
 		
 		makeRequestVoid("/DigiYatzy/YatzyGameServlet" +
-						"?diceSelection=" + diceSelection);
+						"?diceSelection=" + diceToBeRolled);
 		
 		/**
 		Send rollDice request til POST, med parameter som trengs:
 		gameid, username, diceselection
 		 */
 		
-		
-	}
-	
-	else {
-		alert("Not your turn!");
-	}
 	
 	updateGameStatus();
 	
