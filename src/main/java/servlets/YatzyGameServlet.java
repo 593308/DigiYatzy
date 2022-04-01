@@ -68,6 +68,9 @@ public class YatzyGameServlet extends HttpServlet {
 		
 		int gameId = (int)(session.getAttribute("gameId"));
 		
+		String selection = request.getParameter("diceSelection");
+		System.out.println(selection);
+		
 		
 		
 		

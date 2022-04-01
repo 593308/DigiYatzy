@@ -126,6 +126,7 @@ public class ScoreCalculator {
 	}
 
 	public int calculateScore(List<Integer> diceValues, int round) {
+		System.out.println("TEST: calculating score");
 		return scoreFunctions.get(round).apply(diceValues);
 	}
 

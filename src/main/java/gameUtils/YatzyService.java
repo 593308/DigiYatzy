@@ -4,6 +4,7 @@ package gameUtils;
 
 import classes.YatzyUser;
 import gameClasses.Player;
+import gameClasses.PlayerId;
 import gameClasses.YatzyGame;
 import utils.UserDAO;
 
@@ -62,6 +63,11 @@ public class YatzyService {
 	public void rollDice(int gameId, String username, boolean[] diceSelection) {
 		YatzyGame game = gamedao.getGameById(gameId);
 		game.rollDice(username, diceSelection);
+		
+		PlayerId playerId = new PlayerId(username, gameId);
+		
+		playerdao.updatePlayer(playerdao.getPlayer(playerId));
+		
 
 		gamedao.updateGame(game);
 	}

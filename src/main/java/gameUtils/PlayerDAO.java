@@ -53,31 +53,35 @@ public class PlayerDAO  {
 
     }
 
-    /**
-     * 
-     * @param id - Sammensatt PK for å finne den riktig spilleren
-     * @param whatToUpdate - Hvilken verdi som skal oppdateres, enere, toere, treere osv..
-     */
-    public void updateScore(PlayerId id, String whatToUpdate, int value) {
-
-        Player x = getPlayer(id);
-        String userName = x.getYatzyUser().getUsername();
-        int gameId = x.getYatzyGame().getGameId(); 
-
-        TypedQuery<Player> q = em.createQuery("SELECT p from Player p where username = :userName AND gameid = :gameId ", Player.class);
-
-        q.setParameter("whatToUpdate", whatToUpdate); 
-        q.setParameter("userName", userName); 
-        q.setParameter("gameId", gameId); 
-
-        q.getSingleResult();
-        
-   
-
-
-
-
-
+//    /**
+//     * 
+//     * @param id - Sammensatt PK for å finne den riktig spilleren
+//     * @param whatToUpdate - Hvilken verdi som skal oppdateres, enere, toere, treere osv..
+//     */
+//    public void updateScore(PlayerId id, String whatToUpdate, int value) {
+//
+//        Player x = getPlayer(id);
+//        String userName = x.getYatzyUser().getUsername();
+//        int gameId = x.getYatzyGame().getGameId(); 
+//
+//        TypedQuery<Player> q = em.createQuery("SELECT p from Player p where username = :userName AND gameid = :gameId ", Player.class);
+//
+//        q.setParameter("whatToUpdate", whatToUpdate); 
+//        q.setParameter("userName", userName); 
+//        q.setParameter("gameId", gameId); 
+//
+//        q.getSingleResult();
+//        
+//   
+//
+//
+//
+//
+//
+//    }
+    
+    public void updatePlayer(Player player) {
+    	em.merge(player);
     }
 
 

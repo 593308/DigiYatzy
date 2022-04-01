@@ -87,7 +87,7 @@ public class YatzyGame {
 
 	public void rollDice(String username, boolean[] diceselection) {
 
-		System.out.println(currentPlayer);
+		System.out.println("TEST: " + currentPlayer + " rolling dice");
 
 		if (currentPlayer.equals(username)) {
 
@@ -120,6 +120,7 @@ public class YatzyGame {
 	}
 
 	public void advanceTurn() {
+		System.out.println("TEST: advancing turn");
 
 		diceRollCount++;
 
@@ -147,8 +148,10 @@ public class YatzyGame {
 	}
 
 	public void endTurn(String username) {
-		if (diceRollCount == 0 || !username.equals(currentPlayer))
-			return;
+//		if (diceRollCount == 0 || !username.equals(currentPlayer))
+//			return;
+		
+		System.out.println("TEST: ending turn");
 
 		diceRollCount = 0;
 		strikeCount = 0;
@@ -160,17 +163,22 @@ public class YatzyGame {
 	}
 
 	private void setScore() {
+		System.out.println("TEST: setting score");
 		ScoreCalculator sc = new ScoreCalculator();
 		int score = sc.calculateScore(getDiceValues(), roundCount);
 		int index = findIndexOfPlayer(currentPlayer);
+		System.out.println("TEST: index of current player = " + index);
 		switch (roundCount) {
 		case 1:
 			players.get(index).setOnesScore(score);
+			System.out.println("TEST: setting onesScore for player" + currentPlayer + " | onesScore = " + score);
 			break;
 		case 2:
+			System.out.println("TEST: setting twosScore");
 			players.get(index).setTwosScore(score);
 			break;
 		case 3:
+			System.out.println("TEST: setting threesScore");
 			players.get(index).setThreesScore(score);
 			break;
 		case 4:
