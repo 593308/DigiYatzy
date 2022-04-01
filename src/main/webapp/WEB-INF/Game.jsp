@@ -16,7 +16,7 @@
 	
 	
 	<tr id="playas">
-		<c:forEach items="${game.players}" var="p">
+		<c:forEach items="${players}" var="p">
        	 	<th></th>
         	<th><c:out value="${p.username}"></c:out></th>
 	
