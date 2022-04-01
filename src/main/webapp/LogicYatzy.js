@@ -123,7 +123,7 @@ function rollDice() {
 		makePostRequestVoid("/DigiYatzy/YatzyGameServlet" +
 						"?diceSelection=" + diceToBeRolled);
 	
-	//updateGameStatus();
+		updateGameStatus();
 	
 }
 
