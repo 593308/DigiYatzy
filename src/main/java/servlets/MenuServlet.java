@@ -55,7 +55,6 @@ public class MenuServlet extends HttpServlet {
 		
 		String createGame = request.getParameter("createGame");
 		String joinGame = request.getParameter("joinGame");
-		int gameId = Integer.parseInt(request.getParameter("gameId"));
 		
 		HttpSession session= request.getSession(true);
 		String username = (String) session.getAttribute("username");
@@ -63,7 +62,7 @@ public class MenuServlet extends HttpServlet {
 		YatzyService service = new YatzyService(userdao, gamedao, playerdao);
 		
 		
-		//int gameId = 0;
+		int gameId = 0;
 		
 		if (createGame != null) {
 			gameId = service.createGame(username);
@@ -74,6 +73,7 @@ public class MenuServlet extends HttpServlet {
 			
 			
 		} else if (joinGame != null) {
+			gameId = Integer.parseInt(request.getParameter("gameId"));
 			session.setAttribute("gameId", gameId);
 			service.joinGame(gameId, username);
 //			session.setAttribute("game", gamedao.getGameById(gameId));
