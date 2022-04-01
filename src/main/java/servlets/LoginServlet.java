@@ -58,6 +58,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if (PasswordUtil.validateWithSalt(password, user.getPassword().getSalt(), user.getPassword().getHash())) {
 			session.setAttribute("username", username);
+			System.out.println(session.getAttribute("username") + " have successfully logged in");
 			response.sendRedirect("MenuServlet");
 		} else {
 			response.sendRedirect("LoginServlet");

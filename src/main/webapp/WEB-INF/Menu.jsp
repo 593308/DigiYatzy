@@ -13,13 +13,13 @@
 
 
 	 <form  method="post">
-	 	<input type="submit" class="pure-button pure-button-primary" value="Create Game "/>
+	 	<input type="submit" class="pure-button pure-button-primary" value="Create Game" name="createGame"/>
 	 </form>
 	 <br>
 	 <form method="post">
 	 	<input type ="number" name="gameId" value="GameId">
 	 	<br> 
-	 	<input type="submit" class="pure-button pure-button-primary" value="Join Game">
+	 	<input type="submit" class="pure-button pure-button-primary" value="Join Game" name="joinGame">
 	 	
 	 	
 	 </form>

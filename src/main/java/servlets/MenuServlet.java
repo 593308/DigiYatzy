@@ -53,8 +53,8 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String createGame = request.getParameter("Create Game");
-		String joinGame = request.getParameter("Join Game");
+		String createGame = request.getParameter("createGame");
+		String joinGame = request.getParameter("joinGame");
 		
 		HttpSession session= request.getSession(true);
 		String username = (String) session.getAttribute("username");
@@ -66,11 +66,14 @@ public class MenuServlet extends HttpServlet {
 		
 		if (createGame != null) {
 			gameId = service.createGame(username);
+			System.out.println("Game with id" + gameId + " has successfully been created by " + username);
 			session.setAttribute("gameId", gameId);
 			response.sendRedirect("YatzyGameServlet");
 			
+			
+		} else if (joinGame != null) {
+			System.out.println("joiner game");
 		}
-		doGet(request, response);
 
 	}
 

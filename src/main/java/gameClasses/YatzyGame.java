@@ -41,8 +41,6 @@ public class YatzyGame {
 	private int die3Value;
 	private int die4Value;
 	private LocalDateTime lastInput;
-	
-
 
 	public YatzyGame(String hostPlayer) {
 		this.hostPlayer = hostPlayer;
@@ -75,6 +73,11 @@ public class YatzyGame {
 
 	public void startGame() {
 
+		if (players != null)
+			System.out.println("TEST: Player size = " + players.size());
+		else
+			System.out.println("players are null");
+
 		currentPlayer = players.get(0).getYatzyUser().getUsername();
 		roundCount = 1;
 		gameState = GameState.PLAYER_TURN;
@@ -84,33 +87,33 @@ public class YatzyGame {
 
 	public void rollDice(String username, boolean[] diceselection) {
 
+		System.out.println(currentPlayer);
+
 		if (currentPlayer.equals(username)) {
-			
-		if (diceRollCount == 0) {
-			diceselection = new boolean[] {false, false, false, false, false};
-		}
-			
 
-		if (!diceselection[0]) {
-			die0Value = (int) ((Math.random() * 5) + 1);
-		}
+			if (diceRollCount == 0) {
+				diceselection = new boolean[] { false, false, false, false, false };
+			}
 
-		if (!diceselection[1]) {
-			die1Value = (int) ((Math.random() * 5) + 1);
-		}
-		if (!diceselection[2]) {
-			die2Value = (int) ((Math.random() * 5) + 1);
-		}
-		if (!diceselection[3]) {
-			die3Value = (int) ((Math.random() * 5) + 1);
-		}
-		if (!diceselection[4]) {
-			die4Value = (int) ((Math.random() * 5) + 1);
-		}
+			if (!diceselection[0]) {
+				die0Value = (int) ((Math.random() * 5) + 1);
+			}
 
-		
-		advanceTurn();
-		lastInput = LocalDateTime.now();
+			if (!diceselection[1]) {
+				die1Value = (int) ((Math.random() * 5) + 1);
+			}
+			if (!diceselection[2]) {
+				die2Value = (int) ((Math.random() * 5) + 1);
+			}
+			if (!diceselection[3]) {
+				die3Value = (int) ((Math.random() * 5) + 1);
+			}
+			if (!diceselection[4]) {
+				die4Value = (int) ((Math.random() * 5) + 1);
+			}
+
+			advanceTurn();
+			lastInput = LocalDateTime.now();
 		} else
 			return;
 
@@ -126,7 +129,7 @@ public class YatzyGame {
 		}
 
 	}
-	
+
 	private void iterateTurn() {
 		int index = findIndexOfPlayer(currentPlayer);
 		do {
@@ -151,13 +154,11 @@ public class YatzyGame {
 		strikeCount = 0;
 		lastInput = LocalDateTime.now();
 		setScore();
-		
+
 		iterateTurn();
 
-		
-
 	}
-	
+
 	private void setScore() {
 		ScoreCalculator sc = new ScoreCalculator();
 		int score = sc.calculateScore(getDiceValues(), roundCount);
@@ -229,27 +230,27 @@ public class YatzyGame {
 
 		if (username.equals(currentPlayer) || gameState != GameState.PLAYER_TURN)
 			return;
-		
+
 		Duration duration = Duration.between(LocalDateTime.now(), lastInput);
-		
+
 		if (duration.getSeconds() > 15) {
 			strikeCount++;
 			lastInput = LocalDateTime.now();
 			if (strikeCount >= 3)
 				kick(currentPlayer);
-				
+
 		}
 
 	}
-	
+
 	private void kick(String username) {
 		Player player = players.get(findIndexOfPlayer(username));
 		player.setPlayerstate(PlayerState.INACTIVE);
 		diceRollCount = 0;
 		strikeCount = 0;
-		
+
 		iterateTurn();
-		
+
 	}
 
 	public List<Integer> getDiceValues() {

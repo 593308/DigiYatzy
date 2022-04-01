@@ -60,11 +60,18 @@ public class YatzyGameServlet extends HttpServlet {
 		
 		HttpSession session= request.getSession(true);
 		String username = (String) session.getAttribute("username");
+		System.out.println(username);
+		
+		int gameId = (int)(session.getAttribute("gameId"));
+		
+		service.startGame(gameId, username);
+		
+		
 		
 		
 		boolean[] testgreier = new boolean[]{false, false, false, false, false};
 		if (rolledDice != null) {
-			service.rollDice(0, username, testgreier);
+			service.rollDice(gameId, username, testgreier);
 		}
 		
 		

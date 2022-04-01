@@ -43,6 +43,7 @@ public class YatzyService {
 		Player player = new Player(user, game);
 
 		playerdao.addNewPlayer(player);
+		gamedao.updateGame(game);
 
 	}
 
@@ -50,6 +51,7 @@ public class YatzyService {
 
 		YatzyGame game = gamedao.getGameById(gameId);
 		game.startGame();
+		
 		gamedao.updateGame(game);
 		
 		//TODO Update clients with YatzyGame as parameter
