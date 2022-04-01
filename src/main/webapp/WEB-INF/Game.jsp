@@ -83,19 +83,19 @@
 
 	<div id="dice">
 		<div id="die_1">
-			<c:out value="${game.die1Value}"></c:out> <!-- Må sette game som attributt, og bruke game.die1 osv -->
+			<c:out value="${game.die0Value}"></c:out> <!-- Må sette game som attributt, og bruke game.die1 osv -->
 		</div>
 		<div id="die_2">
-			<c:out value="${game.die2Value}"></c:out>
+			<c:out value="${game.die1Value}"></c:out>
 		</div>
 		<div id="die_3">
-			<c:out value="${game.die3Value}"></c:out>
+			<c:out value="${game.die2Value}"></c:out>
 		</div>
 		<div id="die_4">
-			<c:out value="${game.die4Value}"></c:out>
+			<c:out value="${game.die3Value}"></c:out>
 		</div>
 		<div id="die_5">
-			<c:out value="${game.die5Value}"></c:out>
+			<c:out value="${game.die4Value}"></c:out>
 		</div>
 
 	</div>
