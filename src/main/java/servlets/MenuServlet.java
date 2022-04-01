@@ -1,11 +1,19 @@
 package servlets;
 
 import java.io.IOException;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import gameUtils.PlayerDAO;
+import gameUtils.YatzyGameDAO;
+import gameUtils.YatzyService;
+import utils.UserDAO;
 
 /**
  * Servlet implementation class MenuServlet
@@ -13,6 +21,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MenuServlet")
 public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@EJB
+	YatzyGameDAO gamedao;
+	
+	@EJB
+	UserDAO userdao;
+	
+	@EJB
+	PlayerDAO playerdao;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,6 +53,23 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String createGame = request.getParameter("Create Game");
+		String joinGame = request.getParameter("Join Game");
+		
+		HttpSession session= request.getSession(true);
+		String username = (String) session.getAttribute("username");
+		
+		YatzyService service = new YatzyService(userdao, gamedao, playerdao);
+		
+		
+		int gameId = 0;
+		
+		if (createGame != null) {
+			gameId = service.createGame(username);
+			session.setAttribute("gameId", gameId);
+			response.sendRedirect("YatzyGameServlet");
+			
+		}
 		doGet(request, response);
 
 	}
