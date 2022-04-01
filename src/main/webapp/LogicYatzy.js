@@ -113,6 +113,9 @@ function rollDice() {
 		
 		let diceSelection = document.getElementById("diceToBeRolled").Value;
 		
+		makeRequestVoid("/DigiYatzy/YatzyGameServlet" +
+						"?diceSelection=" + diceSelection);
+		
 		/**
 		Send rollDice request til POST, med parameter som trengs:
 		gameid, username, diceselection
@@ -132,13 +135,13 @@ function rollDice() {
 function makeRequestVoid(url) {
 
 	var request = new XMLHttpRequest();
-	request.open("GET", url, false);
+	request.open("POST", url, false);
 	request.send();
 }
 
 function makeRequest(url) {
 		var request = new XMLHttpRequest();
-		request.open("GET", url, false);
+		request.open("POST", url, false);
 		request.send();
 	
 		if (request.responseText) {

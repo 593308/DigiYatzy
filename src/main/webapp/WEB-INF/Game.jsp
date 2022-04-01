@@ -107,6 +107,20 @@
 		<input id="diceToBeRolled" type=hidden name="diceToBeRolled" value="00000"></input>
 		<button id="Roll" type="submit" value="Roll" name="Roll Dice">Roll Dice</button>
 	</form>
+	
+	
+	<!-- Dette er Jørgen sitt forsøk på å sende riktige verdier for hvilke terninger som skal
+	trilles, til POST i YatzyGameServlet (tror ihvertfall det blir post) -->
+	<input type="button" class="button" value="roll selected dice" onclick=rollDice()>
+
+
+
+
+
+
+
+
+
 
 
 	<script src="LogicYatzy.js"></script>
