@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import gameClasses.YatzyGame;
 import gameUtils.GameState;
 import gameUtils.PlayerDAO;
 import gameUtils.YatzyGameDAO;
@@ -44,7 +45,8 @@ public class YatzyGameServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		YatzyGame game = yatzygamedao.getGameById((int)request.getSession().getAttribute("gameId"));
+		request.getSession().setAttribute("game", game);
 		request.getRequestDispatcher("WEB-INF/Game.jsp").forward(request, response);
 	}
 
