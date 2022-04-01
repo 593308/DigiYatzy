@@ -63,7 +63,7 @@ public class MenuServlet extends HttpServlet {
 		YatzyService service = new YatzyService(userdao, gamedao, playerdao);
 		
 		
-		
+		//int gameId = 0;
 		
 		if (createGame != null) {
 			gameId = service.createGame(username);
