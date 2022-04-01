@@ -113,6 +113,8 @@ function rollDice() {
 		
 		let diceSelection = document.getElementById("diceToBeRolled").Value;
 		
+		 console.log("disse dice sendes til servlet: " + document.getElementById("diceToBeRolled").Value);
+		
 		makeRequestVoid("/DigiYatzy/YatzyGameServlet" +
 						"?diceSelection=" + diceSelection);
 		
