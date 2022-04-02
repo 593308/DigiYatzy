@@ -122,8 +122,9 @@ function rollDice() {
 		
 		makePostRequestVoid("/DigiYatzy/YatzyGameServlet" +
 						"?diceSelection=" + diceToBeRolled);
-	
-		updateGameStatus();
+						
+		console.log("kaller på update game")
+		updateGameStatus(); //Kommer ikke hit av en eller annen grunn
 	
 }
 
@@ -179,9 +180,18 @@ function makeGetRequest(url) {
 //Oppdaterer gamet
 function updateGameStatus() {
 	
-	//Gjør basicolly bare en ny GET ved å sende en request?
+	//updateGameStatus må reloade scoreboards og terningene
 	
-	makeGetRequestVoid("/DigiYatzy/YatzyGameServlet");
+	//Dette funker ikke, blir ikke kalt på i rollDice
+	console.log("Venter 2 sekunder, oppdaterer dice");
+	setTimeout(updateDice(), 2000);
+	
+}
+
+function updateDice() {
+	
+	console.log("Dice blir oppdatert");
+	$("#dice").load(" #dice > *");
 	
 }
 
