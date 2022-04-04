@@ -123,8 +123,7 @@ function rollDice() {
 		makePostRequestVoid("/DigiYatzy/YatzyGameServlet" +
 						"?diceSelection=" + diceToBeRolled);
 						
-		console.log("kaller på update game")
-		updateGameStatus(); //Kommer ikke hit av en eller annen grunn
+		//updateGameStatus();
 	
 }
 
@@ -183,17 +182,18 @@ function updateGameStatus() {
 	//updateGameStatus må reloade scoreboards og terningene
 	
 	//Dette funker ikke, blir ikke kalt på i rollDice
-	console.log("Venter 2 sekunder, oppdaterer dice");
-	setTimeout(updateDice(), 2000);
+	console.log("Venter 0.1 sekund, oppdaterer dice");
+	setTimeout(updateDisplay(), 100);
 	
 }
 
-function updateDice() {
-	
-	console.log("Dice blir oppdatert");
-	$("#dice").load(" #dice > *");
-	
+//Oppdaterer terningverdier når/hvis de har blitt trillet
+function updateDisplay() 
+{
+	$( "#dice" ).load(window.location.href + " #dice" );
 }
+
+
 
 //Funksjonen kalles når spillet settes i gang (vet ikke helt hvordan enda)
 function startGame() {
@@ -213,6 +213,8 @@ function continousUpdate(finished) {
 		}
 	}, 1000);
 }
+
+
 
 
 
