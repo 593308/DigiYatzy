@@ -1,39 +1,124 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<!-- Fra https://purecss.io/ -->
+<title>DigiYatzy</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 <link rel="stylesheet"
-	href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
-<title>Register</title>
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+	rel="stylesheet" />
+<!--Stylesheet-->
+<style media="screen">
+*, *:before, *:after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #2d55a0;
+}
+
+.background {
+	width: 430px;
+	height: 520px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+}
+
+.background .shape {
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	border-radius: 50%;
+}
+
+form {
+	height: 630px;
+	width: 400px;
+	background-color: rgba(255, 255, 255, 0.13);
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	border-radius: 10px;
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+	padding: 50px 35px;
+}
+
+form * {
+	font-family: "Poppins", sans-serif;
+	color: #ffffff;
+	letter-spacing: 0.5px;
+	outline: none;
+	border: none;
+}
+
+form h3 {
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 42px;
+	text-align: center;
+}
+
+label {
+	display: block;
+	margin-top: 30px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+input {
+	display: block;
+	height: 50px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.07);
+	border-radius: 3px;
+	padding: 0 10px;
+	margin-top: 8px;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+::placeholder {
+	color: #e5e5e5;
+}
+
+button {
+	margin-top: 50px;
+	width: 100%;
+	background-color: #ffffff;
+	color: #080710;
+	padding: 15px 0;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
-	<h2>Register user to DigiYatzy</h2>
+	<div class="background">
+		<div class="shape"></div>
+		<div class="shape"></div>
+	</div>
+	<form method="post">
+		<h3>Register user to DigiYatzy</h3>
 
-	
-	
-	<form method="post" class="pure-form pure-form-aligned">
-		<fieldset>
-			<div class="pure-control-group">
-				<label for="username">Username:</label> <input type="text" name="username" />
-			</div>
-			<div class="pure-control-group">
-				<label for="username">Email:</label> <input type="text" name="email" />
-			</div>
-			<div class="pure-control-group">
-				<label for="password">Password:</label> <input type="password"
-					name="password" />
-			</div>
-			<div class="pure-controls">
-				<button type="submit" class="pure-button pure-button-primary">Register
-					</button>
-			</div>
-		</fieldset>
+		<label for="username">Username</label> <input type="text"
+			placeholder="Username" name="username" /> <label for="username">Email</label>
+		<input type="text" placeholder="Email" name="email" /> <label
+			for="password">Password</label> <input type="password"
+			placeholder="Password" name="password" />
+
+		<button>Register</button>
 	</form>
-
-	
-
 </body>
 </html>
