@@ -114,7 +114,7 @@
 	<input type="button" class="button" value="roll selected dice" onclick=rollDice()> -->
 	
 	
-	<button type="button" class="button" onclick=rollDice()>Roll selected dice</button>
+	<button type="button" class="button" onclick=rollDice()>Roll non-green dice</button>
 
 
 

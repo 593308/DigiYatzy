@@ -1,26 +1,33 @@
 "use strict";
 
-let diceLocked = "11111";
-
-//Her er variabler jeg tror må hentes ut fra Game, og skrives i HTML
-//enten skjult eller som info (som kan være nyttig)
-let finished = false;
+/*let finished = false;
 let playerInTurn;
 let currentPlayer;
+*/
 
+/**
+PROBLEM: måten terningene refreshes på, med .load lager nye divs
+inne i eksisterende divs. Det er derfor det blir kukk med grafikken,
+og at eventlisteners ikke blir lagt til ordentlig
+*/
 
-let die_1 = document.getElementById("die_1");
-let die_2 = document.getElementById("die_2");
-let die_3 = document.getElementById("die_3");
-let die_4 = document.getElementById("die_4");
-let die_5 = document.getElementById("die_5");
+//Setter opp dice første gangen siden lastes
+setupDice();
 
 //Tilhørende element er på linje 105 i game.jsp
 //let diceToBeRolled = document.getElementById("diceToBeRolled");
 let diceToBeRolled = "11111";
 
-let takeRoll = document.getElementById("takeRoll");
+//let takeRoll = document.getElementById("takeRoll");
 
+function setupDice() {
+
+//Måtte prøve å flytte denne til setup, for å plukke opp riktig element
+let die_1 = document.getElementById("die_1");
+let die_2 = document.getElementById("die_2");
+let die_3 = document.getElementById("die_3");
+let die_4 = document.getElementById("die_4");
+let die_5 = document.getElementById("die_5");
 
 //Hver die får sin egen element id som paramater.
 die_1.myParam = "die_1";
@@ -44,12 +51,13 @@ die_3.classList.add("unlocked");
 die_4.classList.add("unlocked");
 die_5.classList.add("unlocked");
 
+}
 
 //Har som mål å oppdatere hidden value for diceToBeRolled, sjekk linje 105 i Game.jsp
 let updateDice = function () {
     diceToBeRolled = "";
 
-    if (die_1.classList.contains("locked")) {
+    if (document.getElementById("die_1").classList.contains("locked")) {
         diceToBeRolled += 0;
 
     }
@@ -59,25 +67,25 @@ let updateDice = function () {
 
     }
 
-    if (die_2.classList.contains("locked")) {
+    if (document.getElementById("die_2").classList.contains("locked")) {
         diceToBeRolled += 0;
     }
     else {
         diceToBeRolled += 1;
     }
-    if (die_3.classList.contains("locked")) {
+    if (document.getElementById("die_3").classList.contains("locked")) {
         diceToBeRolled += 0;
     }
     else {
         diceToBeRolled += 1;
     }
-    if (die_4.classList.contains("locked")) {
+    if (document.getElementById("die_4").classList.contains("locked")) {
         diceToBeRolled += 0;
     }
     else {
         diceToBeRolled += 1;
     }
-    if (die_5.classList.contains("locked")) {
+    if (document.getElementById("die_5").classList.contains("locked")) {
         diceToBeRolled += 0;
     }
     else {
@@ -123,7 +131,7 @@ function rollDice() {
 		makePostRequestVoid("/DigiYatzy/YatzyGameServlet" +
 						"?diceSelection=" + diceToBeRolled);
 						
-		//updateGameStatus();
+		updateGameStatus();
 	
 }
 
@@ -181,39 +189,60 @@ function updateGameStatus() {
 	
 	//updateGameStatus må reloade scoreboards og terningene
 	
-	//Dette funker ikke, blir ikke kalt på i rollDice
-	console.log("Venter 0.1 sekund, oppdaterer dice");
-	setTimeout(updateDisplay(), 100);
+	//Kan kanskje ta vekk delay, og forenkle metoder
+	setTimeout(updateDisplay(), 200);
 	
 }
 
 //Oppdaterer terningverdier når/hvis de har blitt trillet
-function updateDisplay() 
+function updateDisplay()
 {
-	$( "#dice" ).load(window.location.href + " #dice" );
-}
+	//Denne funker som en vanlig refresh av page
+	location.reload();
+	
+	//CURRENT PROBLEM: THIS CREATES DIVS INSIDE OF EXISTING DIVS
+	//$( "#die_1" ).load(window.location.href + " #die_1" );
+	//$( "#die_2" ).load(window.location.href + " #die_2" );
+	//$( "#die_3" ).load(window.location.href + " #die_3" );
+	//$( "#die_4" ).load(window.location.href + " #die_4" );
+	//$( "#die_5" ).load(window.location.href + " #die_5" );
+	
+	//$("#dice").load(" #dice > *");
+	
+	//$("#die_1").load(" #die_1 > *");
+	//$("#die_2").load(" #die_2 > *");
+	//$("#die_3").load(" #die_3 > *");
+	//$("#die_3").load(" #die_4 > *");
+	//$("#die_4").load(" #die_5 > *");
+	
+	//Eventlisteners må settes opp på nytt osv.
+	//setupDice();
 
+}
+/**
+Trenger å oppdatere siden hvert sekund, men bare hvis det ikke er din tur.
+Kan by på problemer: Når siden oppdateres vil også scriptet kjøres på nytt.
+Og hva skjer hvis man trykker på en knapp akkurat når siden skal refreshes? HÆLVETEEEE */
 
 
 //Funksjonen kalles når spillet settes i gang (vet ikke helt hvordan enda)
-function startGame() {
+/**function startGame() {
 	
 	continousUpdate(finished);
 	
 	
 }
 
-//Etter spillet er started oppdateres spillet helt til finished
-function continousUpdate(finished) {
+//Etter spillet er started oppdateres spillet helt til finished, hvis det ikke er din tur
+ function continousUpdate(finished) {
 	setInterval(function() {
 		if (!finished) {
 			
-			updateGameStatus(gameId);
+			updateGameStatus();
 			
 		}
 	}, 1000);
-}
-
+}*/
 
 
 
