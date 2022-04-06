@@ -39,7 +39,7 @@ body {
 }
 
 form * {
-	font-family: 'Poppins', sans-serif;
+	font-family: sans-serif;
 	color: #ffffff;
 	letter-spacing: 0.5px;
 	outline: none;
@@ -51,18 +51,23 @@ form h3 {
 	font-weight: 500;
 	line-height: 42px;
 	text-align: center;
+  
 }
 
 button {
 	margin-top: 50px;
-	width: 100%;
+	width: 30%;
 	background-color: #ffffff;
 	color: #080710;
 	padding: 15px 0;
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 600;
-	border-radius: 5px;
-	cursor: pointer;
+	border-radius: 15px;
+  position: relative;
+  left: 650px;
+  height: 100px;
+  box-shadow: 0 0 50px rgba(8,7,16,0.6);
+
 }
 </style>
 </head>
