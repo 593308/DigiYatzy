@@ -92,26 +92,20 @@ public class YatzyGame {
 
 		if (currentPlayer.equals(username)) {
 
-
 			if (diceselection[0]) {
 				die0Value = (int)(Math.random()*6) + 1;
-	
 			}
 			if (diceselection[1]) {
-				die1Value = (int)(Math.random()*6) + 1;
-				
+				die1Value = (int)(Math.random()*6) + 1;	
 			}
 			if (diceselection[2]) {
 				die2Value = (int)(Math.random()*6) + 1;
-				//System.out.println("VALUE OF DIE 2 WHEN ROLLED: " + die4Value);
 			}
 			if (diceselection[3]) {
 				die3Value = (int)(Math.random()*6) + 1;
-				//System.out.println("VALUE OF DIE 3 WHEN ROLLED: " + die4Value);
 			}
 			if (diceselection[4]) {
 				die4Value = (int)(Math.random()*6) + 1;
-				//System.out.println("VALUE OF DIE 4 WHEN ROLLED: " + die4Value);
 				}
 
 			advanceTurn();
