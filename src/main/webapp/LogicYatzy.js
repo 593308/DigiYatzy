@@ -20,7 +20,7 @@ let diceToBeRolled = "11111";
 
 let username = document.getElementById("username").innerText;
 let hostPlayer = document.getElementById("hostPlayer").innerText;
-let gameState = document.getElementById("gateState").innerText;
+let gameState = document.getElementById("gameState").innerText;
 let roundCount = document.getElementById("roundCount").innerText;
 let currentPlayer = document.getElementById("currentPlayer").innerText;
 let diceRollCount = document.getElementById("diceRollCount").innerText;
