@@ -12,7 +12,9 @@ og at eventlisteners ikke blir lagt til ordentlig
 */
 
 //Setter opp dice første gangen siden lastes
-setupDice();
+//window.onload = initYatzy();
+
+//setupDice();
 
 //Tilhørende element er på linje 105 i game.jsp
 //let diceToBeRolled = document.getElementById("diceToBeRolled");
@@ -25,6 +27,8 @@ let roundCount = document.getElementById("roundCount").innerText;
 let currentPlayer = document.getElementById("currentPlayer").innerText;
 let diceRollCount = document.getElementById("diceRollCount").innerText;
 
+initYatzy();
+
 console.log("Test av session attributes: " 
 			+ "username: " + username
 			+ " hostPlayer: " + hostPlayer
@@ -33,14 +37,38 @@ console.log("Test av session attributes: "
 			+ " currentPlayer: " + currentPlayer
 			+ " diceRollCount: " + diceRollCount);
 
+function initYatzy() {
+	
+	if (username == hostPlayer && gameState == "PLAYER_JOIN") {
+		console.log("du er host og kan starte spillet");
+		document.getElementById("startGame").style.display = "block";
+		continousUpdate();
+	}
+	
+	else if (username == currentPlayer) {
+		setupDice();
+	}
+	else {
+		continousUpdate();
+		document.getElementById("rollButton").style.display = "none";
+	}
+	
+}
 
-let playerInTurn = false;
+function startGameStatus() {
+	
+	makePostRequestVoid("/DigiYatzy/YatzyGameServlet" +
+						"?updateGameStatus=startGame");
+						
+	setTimeout(location.reload(), 200);
+}
 
 //let takeRoll = document.getElementById("takeRoll");
 
 function setupDice() {
 
 //Måtte prøve å flytte denne til setup, for å plukke opp riktig element
+
 let die_1 = document.getElementById("die_1");
 let die_2 = document.getElementById("die_2");
 let die_3 = document.getElementById("die_3");
@@ -77,12 +105,9 @@ let updateDice = function () {
 
     if (document.getElementById("die_1").classList.contains("locked")) {
         diceToBeRolled += 0;
-
     }
     else {
         diceToBeRolled += 1;
-
-
     }
 
     if (document.getElementById("die_2").classList.contains("locked")) {
@@ -206,7 +231,8 @@ function makeGetRequest(url) {
 function updatePage()
 {
 	//Denne funker som en vanlig refresh av page
-	setTimeout(location.reload(), 100);
+	//setTimeout(location.reload(), 100);
+	location.reload();
 	
 	//CURRENT PROBLEM: THIS CREATES DIVS INSIDE OF EXISTING DIVS
 	//$( "#die_1" ).load(window.location.href + " #die_1" );
@@ -244,11 +270,11 @@ Og hva skjer hvis man trykker på en knapp akkurat når siden skal refreshes? H�
 
 //Etter spillet er started oppdateres spillet helt til finished, hvis det ikke er din tur
 
- function continousUpdate() {
+function continousUpdate() {
 	setInterval(function() {
-		if ((gameState != "FINISHED") && !playerInTurn) {
+		if ((gameState != "FINISHED") && (username != currentPlayer)) {
 			
-			updateGameStatus();
+			updatePage();
 			
 		}
 	}, 1000);

@@ -87,30 +87,28 @@ public class YatzyGameServlet extends HttpServlet {
 		
 		String selection = request.getParameter("diceSelection");
 		
-		System.out.println("TEST: " + selection);
+		String newGameStatus = request.getParameter("updateGameStatus");
+		System.out.println(newGameStatus);
 		
-		
-		boolean[] diceSelector = new boolean[]{true, true, true, true, true};
-		for (int i=0; i<selection.length(); i++) {
-			if (selection.charAt(i) == '0')
-				diceSelector[i] = false;
+		if (newGameStatus != null && newGameStatus.equals("startGame")) {
+			System.out.println("NÅ STARTES GAME");
+			service.startGame(gameId, username);
 		}
 		
-		for (int i = 0; i < 5; i++) 
-			System.out.print(diceSelector[i] + ", ");
+		else if (selection != null) {
+			boolean[] diceSelector = new boolean[]{true, true, true, true, true};
+			for (int i=0; i<selection.length(); i++) {
+				if (selection.charAt(i) == '0')
+					diceSelector[i] = false;
+			}
 		
-		
-		
-		
-		
-		if (true) {
-			if (yatzygamedao.getGameById(gameId).getGameState() == GameState.PLAYER_JOIN)
-				service.startGame(gameId, username);	
 			service.rollDice(gameId, username, diceSelector);
-			response.sendRedirect("YatzyGameServlet");
 		}
 		
 		
+				
+		//s	response.sendRedirect("YatzyGameServlet");
+	
 	}
 
 }

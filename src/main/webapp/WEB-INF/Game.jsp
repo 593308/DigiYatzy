@@ -14,6 +14,7 @@
  
  	<div id="gameInfo">
  	
+ 		<div id="gameId"><c:out value="${gameId}"></c:out></div>
  		<div id="username"><c:out value="${username}"></c:out></div>
  		<div id="hostPlayer"><c:out value="${game.hostPlayer}"></c:out></div>
  		<div id="gameState"><c:out value="${game.gameState}"></c:out></div>
@@ -21,9 +22,9 @@
  		<div id="currentPlayer"><c:out value="${game.currentPlayer}"></c:out></div>
  		<div id="diceRollCount"><c:out value="${game.diceRollCount}"></c:out></div>
  		
- 			
- 	
  	</div>
+ 	
+ 	<button id="startGame" type="button" class="button" style="display:none;" onclick=startGameStatus()>Start game!</button>
  	
     <div id="score">
     <table>
@@ -32,8 +33,7 @@
 	<tr id="playas">
 		<c:forEach items="${players}" var="p">
        	 	<th></th>
-        	<th><c:out value="${p.username}"></c:out></th>
-	
+        	<th><c:out value="${p.username}"></c:out></th>	
 		</c:forEach>
     </tr>
         
@@ -128,7 +128,7 @@
 	<input type="button" class="button" value="roll selected dice" onclick=rollDice()> -->
 	
 	
-	<button type="button" class="button" onclick=rollDice()>Roll non-green dice</button>
+	<button id="rollButton" type="button" class="button" onclick=rollDice()>Roll non-green dice</button>
 
 
 
