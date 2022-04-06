@@ -11,6 +11,20 @@
 <body>
 
  <h1>DigiYatzy</h1>
+ 
+ 	<div id="gameInfo">
+ 	
+ 		<div id="username"><c:out value="${username}"></c:out></div>
+ 		<div id="hostPlayer"><c:out value="${game.hostPlayer}"></c:out></div>
+ 		<div id="gameState"><c:out value="${game.gameState}"></c:out></div>
+ 		<div id="roundCount"><c:out value="${game.roundCount}"></c:out></div>
+ 		<div id="currentPlayer"><c:out value="${game.currentPlayer}"></c:out></div>
+ 		<div id="diceRollCount"><c:out value="${game.diceRollCount}"></c:out></div>
+ 		
+ 			
+ 	
+ 	</div>
+ 	
     <div id="score">
     <table>
 	

@@ -18,6 +18,24 @@ setupDice();
 //let diceToBeRolled = document.getElementById("diceToBeRolled");
 let diceToBeRolled = "11111";
 
+let username = document.getElementById("username").innerText;
+let hostPlayer = document.getElementById("hostPlayer").innerText;
+let gameState = document.getElementById("gateState").innerText;
+let roundCount = document.getElementById("roundCount").innerText;
+let currentPlayer = document.getElementById("currentPlayer").innerText;
+let diceRollCount = document.getElementById("diceRollCount").innerText;
+
+console.log("Test av session attributes: " 
+			+ "username: " + username
+			+ " hostPlayer: " + hostPlayer
+			+ " gameState: " + gameState
+			+ " roundCount: " + roundCount
+			+ " currentPlayer: " + currentPlayer
+			+ " diceRollCount: " + diceRollCount);
+
+
+let playerInTurn = false;
+
 //let takeRoll = document.getElementById("takeRoll");
 
 function setupDice() {
@@ -131,7 +149,7 @@ function rollDice() {
 		makePostRequestVoid("/DigiYatzy/YatzyGameServlet" +
 						"?diceSelection=" + diceToBeRolled);
 						
-		updateGameStatus();
+		updatePage();
 	
 }
 
@@ -184,21 +202,11 @@ function makeGetRequest(url) {
 			}
 }
 
-//Oppdaterer gamet
-function updateGameStatus() {
-	
-	//updateGameStatus må reloade scoreboards og terningene
-	
-	//Kan kanskje ta vekk delay, og forenkle metoder
-	setTimeout(updateDisplay(), 200);
-	
-}
-
 //Oppdaterer terningverdier når/hvis de har blitt trillet
-function updateDisplay()
+function updatePage()
 {
 	//Denne funker som en vanlig refresh av page
-	location.reload();
+	setTimeout(location.reload(), 100);
 	
 	//CURRENT PROBLEM: THIS CREATES DIVS INSIDE OF EXISTING DIVS
 	//$( "#die_1" ).load(window.location.href + " #die_1" );
@@ -232,17 +240,19 @@ Og hva skjer hvis man trykker på en knapp akkurat når siden skal refreshes? H�
 	
 	
 }
+*/
 
 //Etter spillet er started oppdateres spillet helt til finished, hvis det ikke er din tur
- function continousUpdate(finished) {
+
+ function continousUpdate() {
 	setInterval(function() {
-		if (!finished) {
+		if ((gameState != "FINISHED") && !playerInTurn) {
 			
 			updateGameStatus();
 			
 		}
 	}, 1000);
-}*/
+}
 
 
 
