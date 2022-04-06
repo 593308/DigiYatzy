@@ -37,6 +37,8 @@ public class ScoreCalculator {
 			for (int i = 0; i < valueCounts.length; i++)
 				if (valueCounts[i] >= 2)
 					selectedPairValues.add(i);
+			if (selectedPairValues.size() == 0)
+				return 0;
 			return selectedPairValues.stream().max((a, b) -> a.compareTo(b)).get() * 2;
 		};
 		Function<List<Integer>, Integer> twoPairs = d -> {
@@ -56,6 +58,8 @@ public class ScoreCalculator {
 			for (int i = 0; i < valueCounts.length; i++)
 				if (valueCounts[i] >= 3)
 					selectedGroupValues.add(i);
+			if (selectedGroupValues.size() == 0)
+				return 0;
 			return selectedGroupValues.stream().max((a, b) -> a.compareTo(b)).get() * 3;
 		};
 		Function<List<Integer>, Integer> fourOfAKind = d -> {
@@ -64,6 +68,8 @@ public class ScoreCalculator {
 			for (int i = 0; i < valueCounts.length; i++)
 				if (valueCounts[i] >= 4)
 					selectedGroupValues.add(i);
+			if (selectedGroupValues.size() == 0)
+				return 0;
 			return selectedGroupValues.stream().max((a, b) -> a.compareTo(b)).get() * 4;
 		};
 		Function<List<Integer>, Integer> smallStraight = d -> {
@@ -88,8 +94,12 @@ public class ScoreCalculator {
 			for (int i = 0; i < valueCounts.length; i++)
 				if (valueCounts[i] <= 3)
 					selectedGroupValues.add(i);
+			if (selectedGroupValues.size() == 0)
+				return 0;
 			int threeValue = selectedGroupValues.stream().max((a, b) -> a.compareTo(b)).get();
 			selectedPairValues.remove((Integer) threeValue);
+			if (selectedPairValues.size() == 0)
+				return 0;
 			int twoValue = selectedPairValues.stream().max((a, b) -> a.compareTo(b)).get();
 			return twoValue * 2 + threeValue * 3;
 		};
