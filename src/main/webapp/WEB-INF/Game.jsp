@@ -24,66 +24,120 @@
 
 
 				<tr id="playas">
-					<c:forEach items="${players}" var="p">
 						<th></th>
-						<th><c:out value="${p.username}"></c:out></th>
+					<c:forEach items="${players}" var="p">
+						<th><c:out value="${p.yatzyUser.username}"></c:out></th>
 					</c:forEach>
 				</tr>
 
-
 				<tr id="ones">
 					<td>Ones</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.onesScore}"></c:out></td>
+					</c:forEach>
 				</tr>
+				
 				<tr id="twos">
 					<td>Twos</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.twosScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="threes">
 					<td>Threes</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.threesScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="fours">
 					<td>Fours</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.foursScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="fives">
 					<td>Fives</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.fivesScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="sixes">
 					<td>Sixes</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.sixesScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="sum">
 					<th>Sum</th>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.bonusScore}">??</c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="bonus">
 					<th>Bonus</th>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.bonusScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="one pair">
 					<td>One pair</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.onePairScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="two pairs">
 					<td>Two pairs</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.twoPairsScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="three of a kind">
 					<td>Three of a kind</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.threeOfAKindScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="four of a kind">
 					<td>Four of a kind</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.fourOfAKindScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="small straight">
 					<td>Small straight</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.smallStraightScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="large straigh">
 					<td>Large straight</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.largeStraightScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="full house">
 					<td>Full house</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.fullHouseScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="chance">
 					<td>Chance</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.chanceScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="yatzy">
 					<td>Yatzy</td>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.yatzyScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 				<tr id="total score">
 					<th>Total score</th>
+					<c:forEach items="${players}" var="p">
+						<td><c:out value="${p.totalScore}"></c:out></td>
+					</c:forEach>
 				</tr>
 			</table>
 		</div>

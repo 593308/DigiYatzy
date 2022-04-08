@@ -52,16 +52,13 @@ public class YatzyGameServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("TEST: doGet");
 		YatzyGame game = yatzygamedao.getGameById((int)request.getSession().getAttribute("gameId"));
-		request.setAttribute("players", game.getPlayers());
+		
+		request.setAttribute("game", game);
+		request.setAttribute("players", game.getPlayers()); //Trenger jo egentlig ikke denne?
 		
 		List<YatzyUser> usernames = game.getPlayers().stream().map(p -> p.getYatzyUser()).collect(Collectors.toList());
+		//request.setAttribute("players", usernames);
 		
-		request.setAttribute("players", usernames);
-		
-		
-		
-		request.getSession().setAttribute("game", game);
-		System.out.println("TEST: Game die 1 = " + game.getDie0Value() + " Game die 2 = " + game.getDie1Value());
 		request.getRequestDispatcher("WEB-INF/Game.jsp").forward(request, response);
 	}
 
